@@ -1,9 +1,17 @@
 import axios from "axios";
+import { cookies } from "next/headers";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import React from "react";
+const server: any = process.env.SERVER;
 
 const page = async () => {
-  const { data } = await axios.get("http://localhost:3000/users/allUsers");
+  const cookie = cookies().get("auth");
+  if (cookie?.name !== "auth") {
+    redirect("/dashboard/login");
+  }
+
+  const { data } = await axios.get(`${server}/users/allUsers`);
 
   return (
     <div className="bg-black h-full flex gap-3 flex-col justify-center items-center">

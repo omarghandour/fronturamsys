@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
+  // FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -34,39 +34,39 @@ type Data = {
   description: string;
   deadlineDate: string;
 };
-const server = process.env.SERVER;
+const server: any = process.env.SERVER;
 
-const TaskManage = async (data: Data) => {
-  const [taskk, setTask] = useState();
-  const task = async () => {
-    const tt: any = await cookie();
-    setTask(tt);
-  };
-  // console.log(server);
-  // https://uramsys.onrender.com
-  const team = await axios
-    .post(
-      `http://localhost:3001/tasks/create/`,
-      {
-        title: data.title,
-        description: data.description,
-        deadlineDate: data.deadlineDate,
-        creator: "",
-      },
-      {
-        withCredentials: true,
-      }
-    )
-    .then(function (response) {
-      return response;
-    })
-    .catch((error) => {
-      return {
-        message: error.response.data,
-      };
-    });
-  return team;
-};
+// const TaskManage = async (data: Data) => {
+//   const [taskk, setTask] = useState();
+//   const task = async () => {
+//     const tt: any = await cookie();
+//     setTask(tt);
+//   };
+//   // console.log(server);
+//   // https://uramsys.onrender.com
+//   const team = await axios
+//     .post(
+//       `http://localhost:3001/tasks/create/`,
+//       {
+//         title: data.title,
+//         description: data.description,
+//         deadlineDate: data.deadlineDate,
+//         creator: "",
+//       },
+//       {
+//         withCredentials: true,
+//       }
+//     )
+//     .then(function (response) {
+//       return response;
+//     })
+//     .catch((error) => {
+//       return {
+//         message: error.response.data,
+//       };
+//     });
+//   return team;
+// };
 const AddTask = () => {
   const [taskk, setTask] = useState<any>();
   const path = usePathname().split("/")[3];
@@ -77,11 +77,9 @@ const AddTask = () => {
   };
   const router = useRouter();
   const TaskManage = async (data: Data) => {
-    // console.log(server);
-    // https://uramsys.onrender.com
     const team = await axios
       .post(
-        `http://localhost:3000/tasks/create/${path}`,
+        `${server}/tasks/create/${path}`,
         {
           title: data.title,
           description: data.description,

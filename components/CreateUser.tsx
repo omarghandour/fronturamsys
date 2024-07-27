@@ -44,10 +44,9 @@ const server = process.env.SERVER;
 
 const SignupTeam = async (data: Data) => {
   // console.log(server);
-  // https://uramsys.onrender.com
   const team = await axios
     .post(
-      `http://localhost:3000/users/`,
+      `${server}/users/`,
       {
         name: data.name,
         email: data.email,

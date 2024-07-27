@@ -1,9 +1,10 @@
 "use server";
 import axios from "axios";
 import { cookies, headers } from "next/headers";
+const server: any = process.env.SERVER;
 
 const OneUser = async (ID: string) => {
-  const res = await axios(`http://localhost:3000/users/getuser/${ID}`);
+  const res = await axios(`${server}/users/getuser/${ID}`);
   return res.data;
 };
 const cookie = async () => {

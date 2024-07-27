@@ -39,7 +39,7 @@ const SignupTeam = async (data: Data) => {
   // https://uramsys.onrender.com
   const team = await axios
     .post(
-      `http://localhost:3000/users/login`,
+      `${server}/users/login`,
       {
         username: data.username,
         password: data.password,
@@ -97,7 +97,7 @@ const AdminLogin = () => {
     });
   }
   if (data) {
-    router.push("/dashboard");
+    router.replace("/");
   }
   return (
     <div className="w-1/2 flex justify-center items-center">

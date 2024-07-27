@@ -8,10 +8,9 @@ const cookie = async () => {
 };
 const page = async () => {
   const auth: any = await cookie();
-  console.log(auth);
 
-  if (auth === "auth") {
-    redirect("/dashboard");
+  if (auth === "auth" || auth === "user") {
+    redirect("/");
   }
 
   return (
