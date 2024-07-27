@@ -32,14 +32,11 @@ type Data = {
   username: string;
   password: string;
 };
-const server = process.env.SERVER;
 
 const SignupTeam = async (data: Data) => {
-  // console.log(server);
-  // https://uramsys.onrender.com
   const team = await axios
     .post(
-      `${server}/users/login`,
+      `https://uramsys.onrender.com/users/login`,
       {
         username: data.username,
         password: data.password,
@@ -83,7 +80,6 @@ const AdminLogin = () => {
         description: "Failed to sign up. Please try again later.",
       }),
   });
-  console.log(data);
   //   z.infer<typeof FormSchema>
   function onSubmit(data: any) {
     signup(data);

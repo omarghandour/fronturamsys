@@ -12,7 +12,7 @@ const page = async () => {
     redirect("/dashboard/login");
   }
 
-  const { data } = await axios.get(`${server}/tasks`);
+  const { data } = await axios.get(`https://uramsys.onrender.com/tasks`);
 
   return (
     <div className="bg-black h-full flex gap-3 flex-col justify-center items-center">
