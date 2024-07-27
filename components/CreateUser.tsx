@@ -27,8 +27,16 @@ const FormSchema = z.object({
   password: z.string().min(4, {
     message: "Password must be at least 4 characters.",
   }),
+  email: z.string().email({ message: "Invalid email address." }),
+  name: z.string().min(2, {
+    message: "Name must be at least 2 characters.",
+  }),
+  role: z.enum(["admin", "manager", "user"]),
 });
 type Data = {
+  name: string;
+  email: string;
+  role: string;
   username: string;
   password: string;
 };
@@ -39,8 +47,11 @@ const SignupTeam = async (data: Data) => {
   // https://uramsys.onrender.com
   const team = await axios
     .post(
-      `http://localhost:3000/users/login`,
+      `http://localhost:3000/users/`,
       {
+        name: data.name,
+        email: data.email,
+        role: data.role,
         username: data.username,
         password: data.password,
       },
@@ -58,13 +69,16 @@ const SignupTeam = async (data: Data) => {
     });
   return team;
 };
-const AdminLogin = () => {
+const CreateUser = () => {
   const router = useRouter();
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
+      name: "",
       username: "",
+      role: "user",
+      email: "",
       password: "",
     },
   });
@@ -108,12 +122,51 @@ const AdminLogin = () => {
         >
           <FormField
             control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Name</FormLabel>
+                <FormControl>
+                  <Input placeholder="name" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
             name="username"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Username</FormLabel>
                 <FormControl>
                   <Input placeholder="username" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="role"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Role</FormLabel>
+                <FormControl>
+                  <Input placeholder="role" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input placeholder="email" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -141,4 +194,4 @@ const AdminLogin = () => {
   );
 };
 
-export default AdminLogin;
+export default CreateUser;

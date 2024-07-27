@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import axios from "axios";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -19,30 +19,39 @@ import {
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
 import { useMutation } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
+import { cookie } from "@/app/data/Data";
 
 const FormSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+  title: z.string().min(2, {
+    message: "Title must be at least 2 characters.",
   }),
-  password: z.string().min(4, {
-    message: "Password must be at least 4 characters.",
-  }),
+  description: z.string(),
+  deadlineDate: z.string(),
 });
 type Data = {
-  username: string;
-  password: string;
+  title: string;
+  description: string;
+  deadlineDate: string;
 };
 const server = process.env.SERVER;
 
-const SignupTeam = async (data: Data) => {
+const TaskManage = async (data: Data) => {
+  const [taskk, setTask] = useState();
+  const task = async () => {
+    const tt: any = await cookie();
+    setTask(tt);
+  };
   // console.log(server);
   // https://uramsys.onrender.com
   const team = await axios
     .post(
-      `http://localhost:3000/users/login`,
+      `http://localhost:3001/tasks/create/`,
       {
-        username: data.username,
-        password: data.password,
+        title: data.title,
+        description: data.description,
+        deadlineDate: data.deadlineDate,
+        creator: "",
       },
       {
         withCredentials: true,
@@ -58,16 +67,52 @@ const SignupTeam = async (data: Data) => {
     });
   return team;
 };
-const AdminLogin = () => {
-  const router = useRouter();
+const AddTask = () => {
+  const [taskk, setTask] = useState<any>();
+  const path = usePathname().split("/")[3];
 
+  const task = async () => {
+    const tt: any = await cookie();
+    setTask(tt);
+  };
+  const router = useRouter();
+  const TaskManage = async (data: Data) => {
+    // console.log(server);
+    // https://uramsys.onrender.com
+    const team = await axios
+      .post(
+        `http://localhost:3000/tasks/create/${path}`,
+        {
+          title: data.title,
+          description: data.description,
+          deadlineDate: data.deadlineDate,
+          assignedTo: taskk.coo.value,
+        },
+        {
+          withCredentials: true,
+        }
+      )
+      .then(function (response) {
+        return response;
+      })
+      .catch((error) => {
+        return {
+          message: error.response.data,
+        };
+      });
+    return team;
+  };
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      username: "",
-      password: "",
+      title: "",
+      description: "",
+      deadlineDate: "",
     },
   });
+  useEffect(() => {
+    task();
+  }, []);
 
   // tanstack
   const {
@@ -76,7 +121,7 @@ const AdminLogin = () => {
     data,
   } = useMutation({
     mutationKey: ["signup"],
-    mutationFn: SignupTeam,
+    mutationFn: TaskManage,
     onError: () =>
       toast({
         title: "Error",
@@ -100,20 +145,20 @@ const AdminLogin = () => {
     router.push("/dashboard");
   }
   return (
-    <div className="w-1/2 flex justify-center items-center">
+    <div className="w-full flex justify-center items-center">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="w-2/3 space-y-6"
+          className="w-full space-y-6"
         >
           <FormField
             control={form.control}
-            name="username"
+            name="title"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Username</FormLabel>
+                <FormLabel>Title</FormLabel>
                 <FormControl>
-                  <Input placeholder="username" {...field} />
+                  <Input placeholder="title" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -121,12 +166,25 @@ const AdminLogin = () => {
           />
           <FormField
             control={form.control}
-            name="password"
+            name="description"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Password</FormLabel>
+                <FormLabel>Description</FormLabel>
                 <FormControl>
-                  <Input placeholder="password" {...field} />
+                  <Input placeholder="description" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="deadlineDate"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>DeadlineDate</FormLabel>
+                <FormControl>
+                  <Input placeholder="deadlineDate" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -141,4 +199,4 @@ const AdminLogin = () => {
   );
 };
 
-export default AdminLogin;
+export default AddTask;

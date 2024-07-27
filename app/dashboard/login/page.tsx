@@ -1,18 +1,22 @@
 "use server";
-import Dashboard from "@/components/Dashboard";
+import AdminLogin from "../../../components/AdminLogin";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import React from "react";
-
+const cookie = async () => {
+  return cookies().get("auth")?.name;
+};
 const page = async () => {
-  const cookie = cookies().get("auth");
-  if (cookie?.name !== "auth") {
-    redirect("/dashboard/login");
+  const auth: any = await cookie();
+  console.log(auth);
+
+  if (auth === "auth") {
+    redirect("/dashboard");
   }
 
   return (
     <main className="bg-black h-full flex justify-center items-center">
-      <Dashboard />
+      <AdminLogin />
     </main>
   );
 };
