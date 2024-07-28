@@ -46,7 +46,7 @@ const SignupTeam = async (data: Data) => {
   // console.log(server);
   const team = await axios
     .post(
-      `http://localhost:3000/users/`,
+      `https://uramsys.onrender.com/users/`,
       {
         name: data.name,
         email: data.email,

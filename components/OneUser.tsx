@@ -8,7 +8,7 @@ const OneUser = () => {
   const [user, setUser] = useState<any>();
   const GetUser = async (ID: any) => {
     const response = await axios.get(
-      `http://localhost:3000/users/getuser/${ID}`
+      `https://uramsys.onrender.com/users/getuser/${ID}`
     );
     const data = await response.data;
     setUser(data);
