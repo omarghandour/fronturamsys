@@ -3,12 +3,10 @@ import { cookies } from "next/headers";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import React from "react";
-const server: any = process.env.SERVER;
+// const server: any = process.env.SERVER;
 
 const page = async () => {
-  const { data } = await axios.get(
-    `https://uramsys.onrender.com/users/allUsers`
-  );
+  const { data } = await axios.get(`http://localhost:3000/users/allUsers`);
   const cookie = cookies().get("auth");
   if (cookie?.name !== "auth") {
     redirect("/dashboard/login");

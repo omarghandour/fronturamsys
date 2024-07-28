@@ -19,9 +19,7 @@ export default async function Home() {
   const user = cookies().get("user");
   const route = user?.name !== "user" ? "/" : `/${user?.value}`;
 
-  const { data } = await axios.get(
-    `https://uramsys.onrender.com/tasks${route}`
-  );
+  const { data } = await axios.get(`http://localhost:3000/tasks${route}`);
 
   if (auth?.name !== "auth" && user?.name !== "user") {
     redirect("/dashboard/login");

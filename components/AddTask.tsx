@@ -79,7 +79,7 @@ const AddTask = () => {
   const TaskManage = async (data: Data) => {
     const team = await axios
       .post(
-        `${server}/tasks/create/${path}`,
+        `$http://localhost:3000/tasks/create/${path}`,
         {
           title: data.title,
           description: data.description,

@@ -6,9 +6,10 @@ import { Button } from "./ui/button";
 import AddTask from "./AddTask";
 const OneUser = () => {
   const [user, setUser] = useState<any>();
-  const server: any = process.env.SERVER;
   const GetUser = async (ID: any) => {
-    const response = await axios.get(`${server}/users/getuser/${ID}`);
+    const response = await axios.get(
+      `http://localhost:3000/users/getuser/${ID}`
+    );
     const data = await response.data;
     setUser(data);
     return data;

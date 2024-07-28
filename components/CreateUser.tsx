@@ -46,7 +46,7 @@ const SignupTeam = async (data: Data) => {
   // console.log(server);
   const team = await axios
     .post(
-      `${server}/users/`,
+      `http://localhost:3000/users/`,
       {
         name: data.name,
         email: data.email,
