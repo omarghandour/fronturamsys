@@ -11,4 +11,11 @@ const cookie = async () => {
   const coo = cookies().get("auth");
   return { coo };
 };
-export { OneUser, cookie };
+const createCookies = async (data: any) => {
+  console.log(data);
+
+  // cookies().set(token, token, {
+  //   expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+  // });
+};
+export { OneUser, cookie, createCookies };

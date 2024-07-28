@@ -19,6 +19,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
 import { useMutation } from "@tanstack/react-query";
+import { createCookies } from "@/app/data/Data";
+import { useState } from "react";
+import { SignupTeam } from "@/app/data/Signin";
 
 const FormSchema = z.object({
   username: z.string().min(2, {
@@ -28,36 +31,12 @@ const FormSchema = z.object({
     message: "Password must be at least 4 characters.",
   }),
 });
-type Data = {
-  username: string;
-  password: string;
-};
+
 // https://uramsys.onrender.com
-const SignupTeam = async (data: Data) => {
-  const team = await axios
-    .post(
-      `https://uramsys.onrender.com/users/login`,
-      {
-        username: data.username,
-        password: data.password,
-      },
-      {
-        withCredentials: true,
-      }
-    )
-    .then(function (response) {
-      return response;
-    })
-    .catch((error) => {
-      return {
-        message: error.response.data,
-      };
-    });
-  return team;
-};
+
 const AdminLogin = () => {
   const router = useRouter();
-
+  const [dataa, setData] = useState<any>();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -74,11 +53,7 @@ const AdminLogin = () => {
   } = useMutation({
     mutationKey: ["signup"],
     mutationFn: SignupTeam,
-    onError: () =>
-      toast({
-        title: "Error",
-        description: "Failed to sign up. Please try again later.",
-      }),
+    onError: (error) => console.log(error),
   });
   //   z.infer<typeof FormSchema>
   function onSubmit(data: any) {
@@ -92,9 +67,14 @@ const AdminLogin = () => {
       ),
     });
   }
+  //
+
   if (data) {
+    toast({
+      title: "Login Successful",
+      description: "You have successfully logged in.",
+    });
     // router.replace("/");
-    console.log(data);
   }
   return (
     <div className="w-1/2 flex justify-center items-center">
