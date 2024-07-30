@@ -31,13 +31,7 @@ const Navbar = async () => {
           </Avatar>
         </Link>
         <Link href={"/"}>{name}</Link>
-        <form
-          action={async () => {
-            "use server";
-            logout();
-            redirect("/dashboard/login");
-          }}
-        >
+        <form action={logout}>
           <Button type="submit">Logout</Button>
         </form>
       </div>
