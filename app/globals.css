@@ -70,3 +70,10 @@
 .center {
   @apply flex justify-center items-center;
 }
+.mainColor {
+  @apply bg-gradient-to-r from-fuchsia-500 to-cyan-500;
+}
+
+.mainBG {
+  @apply bg-gradient-to-r from-emerald-100 via-rose-200 to-pink-200;
+}

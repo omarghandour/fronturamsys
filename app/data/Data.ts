@@ -4,8 +4,17 @@ import { cookies, headers } from "next/headers";
 const server: any = process.env.SERVER;
 
 const OneUser = async (ID: string) => {
-  const res = await axios(`https://uramsys.onrender.com/users/getuser/${ID}`);
-  return res.data;
+  try {
+    const { data } = await axios(
+      `https://uramsys.onrender.com/users/oneUser/${ID}`
+    );
+    // console.log(data);
+
+    return data;
+  } catch (error: any) {
+    // console.log(error);
+    return error.message;
+  }
 };
 const cookie = async () => {
   const coo = cookies().get("auth");

@@ -11,7 +11,7 @@ const page = async () => {
   }
 
   return (
-    <main className="bg-black h-full flex justify-center items-center">
+    <main className="mainBG h-full flex justify-center items-center">
       <Dashboard />
     </main>
   );

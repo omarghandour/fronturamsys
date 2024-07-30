@@ -51,7 +51,7 @@ const AdminLogin = () => {
     mutate: signup,
     data,
   } = useMutation({
-    mutationKey: ["signup"],
+    mutationKey: ["login"],
     mutationFn: SignupTeam,
     onError: (error) => console.log(error),
   });
@@ -77,7 +77,7 @@ const AdminLogin = () => {
     // router.replace("/");
   }
   return (
-    <div className="w-1/2 flex justify-center items-center">
+    <div className=" w-full md:w-1/2 flex justify-center items-center">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -109,7 +109,11 @@ const AdminLogin = () => {
               </FormItem>
             )}
           />
-          <Button type="submit" disabled={isPending}>
+          <Button
+            className="mainColor rounded-3xl p-7 w-[248px]"
+            type="submit"
+            disabled={isPending}
+          >
             {isPending ? "Submitting..." : "Submit"}
           </Button>
         </form>
