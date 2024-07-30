@@ -4,8 +4,11 @@ import Link from "next/link";
 
 const Dashboard = () => {
   return (
-    <div className="w-full h-full flex justify-center items-center">
-      <div className="w-1/2 h-1/2 bg-white rounded-md grid grid-cols-2 content-around gap-5 p-5">
+    <div className="w-full h-full center flex-col">
+      <Link href={"/"}>
+        <Button>{"<---"}</Button>
+      </Link>
+      <div className=" w-[80%] md:w-1/2 h-1/2 backdrop-blur-lg bg-white/75 rounded-md grid grid-cols-2 content-around gap-5 p-5">
         <Link prefetch={true} href={"dashboard/adduser"}>
           <Button className="w-full">Add User</Button>
         </Link>

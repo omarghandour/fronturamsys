@@ -1,6 +1,8 @@
 "use server";
 import Dashboard from "@/components/Dashboard";
+import { Button } from "@/components/ui/button";
 import { cookies } from "next/headers";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import React from "react";
 
@@ -11,7 +13,7 @@ const page = async () => {
   }
 
   return (
-    <main className="mainBG h-full flex justify-center items-center">
+    <main className="mainBG h-full center ">
       <Dashboard />
     </main>
   );

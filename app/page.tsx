@@ -15,6 +15,7 @@ import {
 import axios from "axios";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import Middle from "@/components/Middle";
 const server: any = process.env.SERVER;
 export default async function Home() {
   const auth = cookies().get("auth");
@@ -32,7 +33,7 @@ export default async function Home() {
   return (
     <main className="h-full mainBG flex flex-col justify-between items-center gap-3">
       <Navbar />
-      {/* <Middle /> */}
+      <Middle />
       <Footer />
     </main>
   );

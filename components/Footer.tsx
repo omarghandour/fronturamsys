@@ -11,16 +11,16 @@ const Footer = () => {
   const pathname = usePathname();
   // cookie.cookie.name
   const bottombarLinks = [
-    {
-      imgURL: about,
-      route: "/about",
-      label: "About",
-    },
-    {
-      imgURL: score,
-      route: "/scoreSheet",
-      label: "ScoreSheet",
-    },
+    // {
+    //   imgURL: about,
+    //   route: "/about",
+    //   label: "About",
+    // },
+    // {
+    //   imgURL: score,
+    //   route: "/scoreSheet",
+    //   label: "ScoreSheet",
+    // },
     {
       imgURL: home,
       route: "/",
@@ -31,14 +31,14 @@ const Footer = () => {
       route: "/dashboard",
       label: "Dashboard",
     },
-    {
-      imgURL: scan,
-      route: "/qr",
-      label: "QR",
-    },
+    // {
+    //   imgURL: scan,
+    //   route: "/qr",
+    //   label: "QR",
+    // },
   ];
   return (
-    <div className="mainColor flex z-50 flex-between w-[95%] sticky bottom-2 rounded-[20px] bg-dark-2 px-5 py-2 md:hidden">
+    <div className="mainColor flex z-50 flex-between justify-around w-[95%] sticky bottom-2 rounded-[20px] bg-dark-2 px-5 py-2 md:hidden">
       {bottombarLinks.map((link) => {
         const isActive = pathname === link.route;
         return (
