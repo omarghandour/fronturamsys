@@ -24,7 +24,7 @@ const Middle = async ({ className, ...props }: CardProps) => {
           </h1>
           <CardContent className="grid gap-4 overflow-scroll h-full w-full">
             <div className="flex flex-col gap-4  mt-4 pt-4 w-full border border-black p-4 rounded-xl">
-              {data.tasksT.map((task: any, index: number) => {
+              {data?.tasksT?.map((task: any, index: number) => {
                 return (
                   <Link
                     href={`/dashboard/alltasks/${task._id}`}
@@ -54,7 +54,7 @@ const Middle = async ({ className, ...props }: CardProps) => {
                   </Link>
                 );
               })}
-              {data.tasks.map((task: any, index: number) => {
+              {data?.tasks?.map((task: any, index: number) => {
                 return (
                   <Link
                     href={`/dashboard/alltasks/${task._id}`}

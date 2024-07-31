@@ -98,6 +98,9 @@ const Task = ({ className, ...props }: CardProps) => {
                   Creator: {task?.data.task.creatorName}
                 </p>
                 <p className="text-sm font-medium leading-none">
+                  Assigned To: {task?.data.task.assignedToName}
+                </p>
+                <p className="text-sm font-medium leading-none">
                   Deadline: {task?.data.task.deadlineDate}
                 </p>
                 <p className="text-sm font-medium leading-none">
