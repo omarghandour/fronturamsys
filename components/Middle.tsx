@@ -11,7 +11,7 @@ const Middle = async ({ className, ...props }: CardProps) => {
   const route = auth?.name !== "manager" ? "/" : `/${auth?.value}`;
 
   const { data } = await axios.get(
-    `https://uramsys.onrender.com/tasks/${auth?.value}/${auth.name}`
+    `https://uramsys.onrender.com/tasks/${auth?.value}/${auth?.name}`
   );
   const len = await data.length;
 
