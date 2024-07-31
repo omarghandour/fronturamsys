@@ -9,18 +9,19 @@ const page = async () => {
   const { data } = await axios.get(
     `https://uramsys.onrender.com/users/allUsers`
   );
-  const cookie = cookies().get("auth");
-  if (cookie?.name !== "auth") {
+  const cookie =
+    cookies().get("manager") || cookies().get("admin") || cookies().get("user");
+  if (!cookie) {
     redirect("/dashboard/login");
   }
 
   return (
-    <div className="bg-black h-full flex gap-3 flex-col justify-center items-center">
+    <div className="mainBG h-full flex gap-3 flex-col justify-center items-center">
       {data.map((user: any) => (
         <Link
           href={`/dashboard/addtask/${user._id}`}
           key={user._id}
-          className="flex gap-5 bg-white w-[30%] justify-center rounded-md"
+          className="flex gap-5 bg-white w-full justify-center rounded-md"
         >
           <div>{user.name}</div>
           <div>{user.role}</div>

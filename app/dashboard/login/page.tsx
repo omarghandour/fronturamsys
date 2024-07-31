@@ -7,8 +7,9 @@ import React from "react";
 
 const cookie = async () => {
   if (
-    cookies().get("auth")?.name === "auth" ||
-    cookies().get("user")?.name === "user"
+    cookies().get("manager")?.name === "manager" ||
+    cookies().get("user")?.name === "user" ||
+    cookies().get("admin")?.name === "admin"
   ) {
     return true;
   }

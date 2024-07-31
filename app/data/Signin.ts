@@ -19,7 +19,10 @@ const SignupTeam = async (data: Data) => {
     )
     .then(function (response) {
       const ff = response.data.JWTtoken;
-      cookies().set(ff.auth ? "auth" : "user", ff.auth ? ff.auth : ff.userr, {
+      const role = response.data.user.role;
+      console.log(role);
+
+      cookies().set(role, ff.auth ? ff.auth : ff.userr, {
         expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
       });
       return response;

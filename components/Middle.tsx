@@ -1,24 +1,18 @@
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
-import Image from "next/image";
-import { checkCookie } from "@/app/data/CookieCheck";
 import Link from "next/link";
 import { cookies } from "next/headers";
 import axios from "axios";
 type CardProps = React.ComponentProps<typeof Card>;
 
 const Middle = async ({ className, ...props }: CardProps) => {
-  const auth = cookies().get("auth");
-  const user = cookies().get("user");
-  const route = user?.name !== "user" ? "/" : `/${user?.value}`;
+  const auth =
+    cookies().get("manager") || cookies().get("admin") || cookies().get("user");
+  const route = auth?.name !== "manager" ? "/" : `/${auth?.value}`;
 
   const { data } = await axios.get(
-    `https://uramsys.onrender.com/tasks${route}`
+    `https://uramsys.onrender.com/tasks/${auth?.value}/${auth.name}`
   );
-  //   console.log(data);
-
-  //   const cookie = await checkCookie();
-  //   const notifications: any = [{ id: 1 }, { id: 2 }];
   const len = await data.length;
 
   return (
@@ -30,7 +24,7 @@ const Middle = async ({ className, ...props }: CardProps) => {
           </h1>
           <CardContent className="grid gap-4 overflow-scroll h-full w-full">
             <div className="flex flex-col gap-4  mt-4 pt-4 w-full border border-black p-4 rounded-xl">
-              {data.map((task: any, index: number) => {
+              {data.tasksT.map((task: any, index: number) => {
                 return (
                   <Link
                     href={`/dashboard/alltasks/${task._id}`}
@@ -49,6 +43,39 @@ const Middle = async ({ className, ...props }: CardProps) => {
                     <div className="space-y-1 overflow-hidden p-2 max-h-[90%]">
                       <p className="text-left text-lg font-medium leading-none">
                         Title: {task.title}
+                      </p>
+                      <p className="text-left break-words text-sm text-muted-foreground overflow-hidden ">
+                        Status: {task.status}
+                      </p>
+                      <p className="text-left break-words text-sm text-muted-foreground overflow-hidden ">
+                        Deadline: {task.deadlineDate}
+                      </p>
+                    </div>
+                  </Link>
+                );
+              })}
+              {data.tasks.map((task: any, index: number) => {
+                return (
+                  <Link
+                    href={`/dashboard/alltasks/${task._id}`}
+                    key={task._id}
+                    className={`${
+                      index === len - 1 ? "mb-15px" : ""
+                    } max-h-[30%] backdrop-blur-md bg-white/80 shadow-2xl rounded-md grid  items-center justify-items-stretch p-4 last:mb-0 last:pb-0 w-[100%] overflow-hidden`}
+                  >
+                    {/* <Image
+                        loading="lazy"
+                        src={"/robot"}
+                        alt=""
+                        width={50}
+                        height={50}
+                      /> */}
+                    <div className="space-y-1 overflow-hidden p-2 max-h-[90%]">
+                      <p className="text-left text-lg font-medium leading-none">
+                        Title: {task.title}
+                      </p>
+                      <p className="text-left break-words text-sm text-muted-foreground overflow-hidden ">
+                        Status: {task.status}
                       </p>
                       <p className="text-left break-words text-sm text-muted-foreground overflow-hidden ">
                         Deadline: {task.deadlineDate}

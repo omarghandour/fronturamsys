@@ -17,7 +17,8 @@ const OneUser = async (ID: string) => {
   }
 };
 const cookie = async () => {
-  const coo = cookies().get("auth");
+  const coo =
+    cookies().get("admin") || cookies().get("manager") || cookies().get("user");
   return { coo };
 };
 const createCookies = async (data: any) => {

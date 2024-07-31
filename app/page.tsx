@@ -18,15 +18,10 @@ import Navbar from "@/components/Navbar";
 import Middle from "@/components/Middle";
 const server: any = process.env.SERVER;
 export default async function Home() {
-  const auth = cookies().get("auth");
-  const user = cookies().get("user");
-  const route = user?.name !== "user" ? "/" : `/${user?.value}`;
+  const auth =
+    cookies().get("manager") || cookies().get("admin") || cookies().get("user");
 
-  const { data } = await axios.get(
-    `https://uramsys.onrender.com/tasks${route}`
-  );
-
-  if (auth?.name !== "auth" && user?.name !== "user") {
+  if (!auth) {
     redirect("/dashboard/login");
   }
 

@@ -9,18 +9,18 @@ import { OneUser } from "@/app/data/Data";
 const Navbar = async () => {
   const logout = async () => {
     "use server";
-    cookies().delete("auth");
+    cookies().delete("admin");
+    cookies().delete("manager");
     cookies().delete("user");
     redirect("/dashboard/login");
   };
   const team = await checkCookie();
   if (!team) {
-    redirect("/login");
+    redirect("/dashboard/login");
   }
   const id = team.value;
   const data = await OneUser(id);
   const name = data.user.name;
-
   return (
     <div className=" sticky top-0 z-50 bg-white w-full shadow-md">
       <div className="flex justify-between flex-row gap-5 m-5 items-center">

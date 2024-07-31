@@ -8,8 +8,9 @@ import React from "react";
 const server: any = process.env.SERVER;
 
 const page = async () => {
-  const cookie = cookies().get("auth");
-  if (cookie?.name !== "auth") {
+  const cookie =
+    cookies().get("manager") || cookies().get("admin") || cookies().get("user");
+  if (!cookie) {
     redirect("/dashboard/login");
   }
 
