@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "./ui/card";
 import { cn } from "@/lib/utils";
-import { useParams } from "next/navigation";
+import { redirect, useParams } from "next/navigation";
 import axios from "axios";
 import { Button } from "./ui/button";
 import { CheckIcon } from "lucide-react";
@@ -36,22 +36,28 @@ const Task = ({ className, ...props }: CardProps) => {
   };
   const status = async (id: any) => {
     const idd = await id;
-    const Status = await axios.patch(
-      `https://uramsys.onrender.com/tasks/task/${idd}`
-    );
+    const Status = await axios
+      .patch(`https://uramsys.onrender.com/tasks/task/${idd}`)
+      .then(() => {
+        location.replace("/");
+      });
   };
   const reject = async (id: any) => {
     const idd = await id;
-    const Reject = await axios.patch(
-      `https://uramsys.onrender.com/tasks/task/reject/${idd}`
-    );
+    const Reject = await axios
+      .patch(`https://uramsys.onrender.com/tasks/task/reject/${idd}`)
+      .then(() => {
+        location.replace("/");
+      });
     console.log(Reject);
   };
   const approved = async (id: any) => {
     const idd = await id;
-    const Approve = await axios.delete(
-      `https://uramsys.onrender.com/tasks/task/${idd}`
-    );
+    const Approve = await axios
+      .delete(`https://uramsys.onrender.com/tasks/task/${idd}`)
+      .then(() => {
+        location.replace("/");
+      });
     console.log(Approve);
   };
   const Reject = async () => {
@@ -114,13 +120,14 @@ const Task = ({ className, ...props }: CardProps) => {
           </div>
         </CardContent>
         <CardFooter className="flex flex-col gap-2">
-          <form action={forrm} className="w-full">
+          <form action={forrm} method="post" className="w-full">
             <Button type="submit" className="w-full">
               <CheckIcon className="mr-2 h-4 w-4" /> Mark all as Done
             </Button>
           </form>
           <form
             action={Reject}
+            method="post"
             className={`w-full ${role?.coo.name !== "user" ? "" : "hidden"}`}
           >
             <Button type="submit" className="w-full bg-red-900">
@@ -128,6 +135,7 @@ const Task = ({ className, ...props }: CardProps) => {
             </Button>
           </form>
           <form
+            method="post"
             action={Approve}
             className={`w-full ${role?.coo.name !== "user" ? "" : "hidden"}`}
           >

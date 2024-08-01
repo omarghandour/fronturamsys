@@ -44,11 +44,19 @@ const Middle = async ({ className, ...props }: CardProps) => {
                       <p className="text-left text-lg font-medium leading-none">
                         Title: {task.title}
                       </p>
-                      <p className="text-left break-words text-sm text-muted-foreground overflow-hidden ">
-                        Status: {task.status}
+                      <p
+                        className={`text-left break-words text-sm text-muted-foreground overflow-hidden ${
+                          task.status === "completed"
+                            ? "text-green-500"
+                            : "text-red-500"
+                        }`}
+                      >
+                        <span className="text-black">Status:</span>{" "}
+                        {task.status}
                       </p>
-                      <p className="text-left break-words text-sm text-muted-foreground overflow-hidden ">
-                        Deadline: {task.deadlineDate}
+                      <p className="text-left break-words text-sm text-muted-foreground overflow-hidden text-green-800">
+                        <span className="text-black">Deadline: </span>
+                        {task.deadlineDate.split("T")[0]}
                       </p>
                     </div>
                   </Link>
@@ -74,11 +82,19 @@ const Middle = async ({ className, ...props }: CardProps) => {
                       <p className="text-left text-lg font-medium leading-none">
                         Title: {task.title}
                       </p>
-                      <p className="text-left break-words text-sm text-muted-foreground overflow-hidden ">
-                        Status: {task.status}
+                      <p
+                        className={`text-left break-words text-sm text-muted-foreground overflow-hidden ${
+                          task.status === "completed"
+                            ? "text-green-500"
+                            : "text-red-500"
+                        }`}
+                      >
+                        <span className="text-black">Status:</span>{" "}
+                        {task.status}
                       </p>
-                      <p className="text-left break-words text-sm text-muted-foreground overflow-hidden ">
-                        Deadline: {task.deadlineDate}
+                      <p className="text-left break-words text-sm text-muted-foreground overflow-hidden text-green-800">
+                        <span className="text-black">Deadline: </span>
+                        {task.deadlineDate.split("T")[0]}
                       </p>
                     </div>
                   </Link>
