@@ -20,14 +20,14 @@ const Navbar = async () => {
   }
   const id = team.value;
   const data = await OneUser(id);
-  const name = data.user.name;
+  const name = data?.user?.name;
   return (
     <div className=" sticky top-0 z-50 bg-white w-full shadow-md">
       <div className="flex justify-between flex-row gap-5 m-5 items-center">
         <Link href={"/"}>
           <Avatar>
             <AvatarImage src={"Pic.team.profilePic"} alt="Profile Pic" />
-            <AvatarFallback>{name[0]}</AvatarFallback>
+            <AvatarFallback>{name ? name[0] : ""}</AvatarFallback>
           </Avatar>
         </Link>
         <Link href={"/"}>{name}</Link>

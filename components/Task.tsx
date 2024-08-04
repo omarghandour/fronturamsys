@@ -107,7 +107,7 @@ const Task = ({ className, ...props }: CardProps) => {
                   Assigned To: {task?.data.task.assignedToName}
                 </p>
                 <p className="text-sm font-medium leading-none">
-                  Deadline: {task?.data.task.deadlineDate}
+                  Deadline: {task?.data.task.deadlineDate.split("T")[0]}
                 </p>
                 <p className="text-sm font-medium leading-none">
                   Status: {task?.data.task.status}
