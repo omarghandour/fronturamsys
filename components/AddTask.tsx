@@ -104,6 +104,7 @@ const AddTask = () => {
         }
       )
       .then(function (response) {
+        location.replace("/");
         return response;
       })
       .catch((error) => {

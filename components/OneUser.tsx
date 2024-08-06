@@ -7,10 +7,11 @@ import AddTask from "./AddTask";
 const OneUser = () => {
   const [user, setUser] = useState<any>();
   const GetUser = async (ID: any) => {
-    const response = await axios.get(
+    const response: any = await axios.get(
       `https://uramsys.onrender.com/users/getuser/${ID}`
     );
-    const data = await response.data;
+
+    const data = await response?.data;
     setUser(data);
     return data;
   };
