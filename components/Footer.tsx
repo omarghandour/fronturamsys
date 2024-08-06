@@ -38,7 +38,7 @@ const Footer = () => {
     // },
   ];
   return (
-    <div className="mainColor flex z-50 flex-between justify-around w-[95%] sticky bottom-2 rounded-[20px] bg-dark-2 px-5 py-2 md:hidden">
+    <div className="mainColor flex z-50 flex-between justify-around w-[95%] sticky bottom-2 rounded-[20px] bg-dark-2 px-5 py-2 ">
       {bottombarLinks.map((link) => {
         const isActive = pathname === link.route;
         return (

@@ -3,14 +3,12 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import axios from "axios";
 import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -19,7 +17,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
 import { useMutation } from "@tanstack/react-query";
-import { createCookies } from "@/app/data/Data";
 import { useState } from "react";
 import { SignupTeam } from "@/app/data/Signin";
 
@@ -32,8 +29,6 @@ const FormSchema = z.object({
   }),
 });
 
-// https://uramsys.onrender.com
-
 const AdminLogin = () => {
   const router = useRouter();
   const [dataa, setData] = useState<any>();
@@ -45,7 +40,6 @@ const AdminLogin = () => {
     },
   });
 
-  // tanstack
   const {
     isPending,
     mutate: signup,
@@ -74,7 +68,6 @@ const AdminLogin = () => {
       title: "Login Successful",
       description: "You have successfully logged in.",
     });
-    // router.replace("/");
   }
   return (
     <div className=" w-full md:w-1/2 flex justify-center items-center">
@@ -110,7 +103,7 @@ const AdminLogin = () => {
             )}
           />
           <Button
-            className="mainColor rounded-3xl p-7 w-[248px]"
+            className="mainColor rounded-3xl p-7 w-full hover:text-black "
             type="submit"
             disabled={isPending}
           >

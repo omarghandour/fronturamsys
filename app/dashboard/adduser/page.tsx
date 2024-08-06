@@ -11,7 +11,7 @@ const page = () => {
   }
 
   return (
-    <div className="bg-black h-full center">
+    <div className="mainBG h-full center">
       <CreateUser />
     </div>
   );

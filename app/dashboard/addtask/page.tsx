@@ -16,12 +16,12 @@ const page = async () => {
   }
 
   return (
-    <div className="mainBG h-full flex gap-3 flex-col justify-center items-center">
+    <div className="mainBG h-full flex gap-3 flex-col justify-center items-center overflow-scroll">
       {data.map((user: any) => (
         <Link
           href={`/dashboard/addtask/${user._id}`}
           key={user._id}
-          className="flex gap-5 bg-white w-full justify-center rounded-md"
+          className="flex gap-5 bg-white w-full  p-2 justify-center hover:bg-slate-500 hover:text-white"
         >
           <div>{user.name}</div>
           <div>{user.role}</div>

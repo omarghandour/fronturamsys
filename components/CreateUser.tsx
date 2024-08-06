@@ -184,7 +184,11 @@ const CreateUser = () => {
               </FormItem>
             )}
           />
-          <Button type="submit" disabled={isPending}>
+          <Button
+            className="w-full mainColor"
+            type="submit"
+            disabled={isPending}
+          >
             {isPending ? "Submitting..." : "Submit"}
           </Button>
         </form>

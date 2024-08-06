@@ -22,7 +22,7 @@ const page = async () => {
         <Link
           href={`/dashboard/allusers/${user._id}`}
           key={user._id}
-          className="flex gap-5 bg-white w-full justify-center rounded-md"
+          className="flex gap-5 bg-white w-full  p-2 justify-center hover:bg-slate-500 hover:text-white"
         >
           <div>{user.name}</div>
           <div>{user.role}</div>
