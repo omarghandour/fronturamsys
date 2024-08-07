@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import Provider from "./utils/Provider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "@/components/ui/toaster";
+import Footer from "@/components/Footer";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -37,12 +38,13 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          "h-[100svh] bg-background font-sans antialiased",
+          "mainBG  bg-background font-sans antialiased flex flex-col items-start h-[100dvh]",
           fontSans.variable
         )}
       >
         <Provider>
           {children}
+          <Footer />
           <Toaster />
           <SpeedInsights />
         </Provider>
