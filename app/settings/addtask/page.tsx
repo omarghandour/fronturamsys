@@ -13,15 +13,15 @@ const page = async () => {
   const cookie =
     cookies().get("manager") || cookies().get("admin") || cookies().get("user");
   if (!cookie) {
-    redirect("/dashboard/login");
+    redirect("/settings/login");
   }
 
   return (
-    <div className="mainBG h-full flex gap-3 flex-col justify-between items-center overflow-scroll">
+    <div className="mainBG h-full flex gap-3 flex-col justify-center items-center overflow-scroll mx-auto">
       <div className="h-4/5 flex gap-5 flex-col mt-5">
         {data.map((user: any) => (
           <Link
-            href={`/dashboard/addtask/${user._id}`}
+            href={`/settings/addtask/${user._id}`}
             key={user._id}
             className="flex gap-5 bg-white w-full  p-2 justify-center hover:bg-slate-500 hover:text-white shadow-xl"
           >
@@ -30,8 +30,7 @@ const page = async () => {
             <div>{user.username}</div>
           </Link>
         ))}
-      </div>
-      <Footer />
+      </div>{" "}
     </div>
   );
 };

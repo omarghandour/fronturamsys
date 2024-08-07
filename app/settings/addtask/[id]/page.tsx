@@ -1,7 +1,5 @@
 import React from "react";
 import OneUser from "@/components/OneUser";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
@@ -9,14 +7,11 @@ const page = async () => {
   const cookie =
     cookies().get("manager") || cookies().get("admin") || cookies().get("user");
   if (!cookie) {
-    redirect("/dashboard/login");
+    redirect("/settings/login");
   }
 
   return (
-    <div className="bg-black h-full center flex-col">
-      <Link href={"/dashboard/addtask"}>
-        <Button>{"<---"}</Button>
-      </Link>
+    <div className=" h-full center flex-col mx-auto">
       <OneUser />
     </div>
   );

@@ -10,12 +10,12 @@ const page = async () => {
   const cookie =
     cookies().get("manager") || cookies().get("admin") || cookies().get("user");
   if (!cookie) {
-    redirect("/dashboard/login");
+    redirect("/settings/login");
   }
 
   return (
     <div className="bg-black h-full center flex-col">
-      <Link href={"/dashboard/allusers"}>
+      <Link href={"/settings/allusers"}>
         <Button>{"<---"}</Button>
       </Link>
       <OneUser />

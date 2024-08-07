@@ -5,20 +5,17 @@ import Link from "next/link";
 const Dashboard = () => {
   return (
     <div className="w-full h-full center flex-col">
-      <Link href={"/"}>
-        <Button className="">{"<---"}</Button>
-      </Link>
       <div className=" w-[80%] md:w-1/2 h-1/2 backdrop-blur-lg bg-white/75 rounded-md grid grid-cols-2 content-around gap-5 p-5">
-        <Link prefetch={true} href={"dashboard/adduser"}>
+        <Link prefetch={true} href={"settings/adduser"}>
           <Button className="w-full mainColor">Add User</Button>
         </Link>
-        <Link prefetch={true} href={"dashboard/allusers"}>
+        <Link prefetch={true} href={"settings/allusers"}>
           <Button className="w-full mainColor">All Users</Button>
         </Link>
-        <Link prefetch={true} href={"dashboard/addtask"}>
+        <Link prefetch={true} href={"settings/addtask"}>
           <Button className="w-full mainColor">Add Task</Button>
         </Link>
-        <Link prefetch={true} href={"dashboard/alltasks"}>
+        <Link prefetch={true} href={"settings/alltasks"}>
           <Button className="w-full mainColor">All Tasks</Button>
         </Link>
       </div>

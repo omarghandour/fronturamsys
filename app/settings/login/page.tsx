@@ -24,7 +24,7 @@ const page = async () => {
   }
 
   return (
-    <main className="h-full">
+    <main className="h-full w-full">
       <Midleware />
     </main>
   );

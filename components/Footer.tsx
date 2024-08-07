@@ -16,20 +16,20 @@ const Footer = () => {
     //   route: "/about",
     //   label: "About",
     // },
-    // {
-    //   imgURL: score,
-    //   route: "/scoreSheet",
-    //   label: "ScoreSheet",
-    // },
+    {
+      imgURL: score,
+      route: "/dashboard",
+      label: "Dashboard",
+    },
     {
       imgURL: home,
       route: "/",
-      label: "Home",
+      label: "inbox",
     },
     {
       imgURL: dashboard,
-      route: "/dashboard",
-      label: "Dashboard",
+      route: "/settings",
+      label: "Settings",
     },
     // {
     //   imgURL: scan,
@@ -38,7 +38,7 @@ const Footer = () => {
     // },
   ];
   return (
-    <div className="mainColor flex z-50 flex-between justify-around w-[95%] sticky bottom-2 rounded-[20px] bg-dark-2 px-5 py-2 ">
+    <div className="mainColor flex z-50 flex-between justify-around w-[95%] sticky bottom-2 rounded-[20px] bg-dark-2 px-5 py-2 mx-auto ">
       {bottombarLinks.map((link) => {
         const isActive = pathname === link.route;
         return (

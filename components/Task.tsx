@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -13,8 +12,8 @@ import { redirect, useParams } from "next/navigation";
 import axios from "axios";
 import { Button } from "./ui/button";
 import { CheckIcon } from "lucide-react";
-import { BellIcon } from "@radix-ui/react-icons";
 import { cookie } from "@/app/data/Data";
+import Comments from "./Comments";
 
 type CardProps = React.ComponentProps<typeof Card>;
 
@@ -75,7 +74,7 @@ const Task = ({ className, ...props }: CardProps) => {
     rr();
   }, [id]);
   return (
-    <div className="h-4/5 w-full center">
+    <div className="h-full w-full flex flex-col justify-start items-center mt-5 overflow-scroll">
       <Card className={cn("w-11/12", className)} {...props}>
         <CardHeader>
           <CardTitle>Tasks</CardTitle>
@@ -143,6 +142,7 @@ const Task = ({ className, ...props }: CardProps) => {
               <CheckIcon className="mr-2 h-4 w-4" /> Approve
             </Button>
           </form>
+          <Comments />
         </CardFooter>
       </Card>
     </div>

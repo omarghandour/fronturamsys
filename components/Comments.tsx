@@ -72,7 +72,7 @@ const Comments = () => {
   }, []);
 
   return (
-    <section className="backdrop-blur-lg bg-white/50 w-full h-1/3 shadow-xl">
+    <section className="backdrop-blur-lg bg-white/50 w-full h-[350px] overflow-scroll shadow-xl ">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}

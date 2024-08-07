@@ -12,11 +12,11 @@ const Navbar = async () => {
     cookies().delete("admin");
     cookies().delete("manager");
     cookies().delete("user");
-    redirect("/dashboard/login");
+    redirect("/settings/login");
   };
   const team = await checkCookie();
   if (!team) {
-    redirect("/dashboard/login");
+    redirect("/settings/login");
   }
   const id = team.value;
   const data = await OneUser(id);
@@ -30,7 +30,7 @@ const Navbar = async () => {
             <AvatarFallback>{name ? name[0] : ""}</AvatarFallback>
           </Avatar>
         </Link>
-        <Link href={"/"}>{name}</Link>
+        <Link href={"/"}>{`Welcome ${name}`}</Link>
         <form action={logout}>
           <Button type="submit">Logout</Button>
         </form>

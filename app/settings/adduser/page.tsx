@@ -7,11 +7,11 @@ const page = () => {
   const cookie =
     cookies().get("manager") || cookies().get("admin") || cookies().get("user");
   if (!cookie) {
-    redirect("/dashboard/login");
+    redirect("/settings/login");
   }
 
   return (
-    <div className="mainBG h-full center">
+    <div className="mainBG h-full center w-full">
       <CreateUser />
     </div>
   );

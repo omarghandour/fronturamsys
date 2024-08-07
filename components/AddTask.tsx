@@ -156,7 +156,7 @@ const AddTask = () => {
     // });
   }
   if (data) {
-    router.push("/dashboard");
+    router.push("/settings");
   }
   return (
     <div className="w-full flex justify-center items-center">

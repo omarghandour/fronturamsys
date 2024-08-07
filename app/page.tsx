@@ -22,14 +22,14 @@ export default async function Home() {
     cookies().get("manager") || cookies().get("admin") || cookies().get("user");
 
   if (!auth) {
-    redirect("/dashboard/login");
+    redirect("/settings/login");
   }
 
   return (
-    <main className="h-full mainBG flex flex-col justify-between items-center gap-3">
+    <main className="h-full w-full mainBG flex flex-col justify-between items-center gap-3">
       <Navbar />
       <Middle />
-      <Footer />
+      {/* <Footer /> */}
     </main>
   );
 }

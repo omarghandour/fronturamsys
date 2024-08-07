@@ -9,7 +9,7 @@ const page = async () => {
   const cookie =
     cookies().get("manager") || cookies().get("admin") || cookies().get("user");
   if (!cookie) {
-    redirect("/dashboard/login");
+    redirect("/settings/login");
   }
 
   const { data } = await axios.get(
@@ -17,10 +17,10 @@ const page = async () => {
   );
 
   return (
-    <div className="mainBG h-full flex gap-3 flex-col justify-center items-center">
+    <div className="mainBG h-full flex gap-3 flex-col justify-center items-center overflow-scroll">
       {data.map((user: any) => (
         <Link
-          href={`/dashboard/allusers/${user._id}`}
+          href={`/settings/allusers/${user._id}`}
           key={user._id}
           className="flex gap-5 bg-white w-full  p-2 justify-center hover:bg-slate-500 hover:text-white"
         >
