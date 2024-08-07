@@ -62,11 +62,12 @@ const AdminLogin = () => {
     // });
   }
   //
+  console.log(data);
 
-  if (data) {
+  if (data?.message) {
     toast({
-      title: "Login Successful",
-      description: "You have successfully logged in.",
+      title: "Login Failed",
+      description: data?.message,
     });
   }
   return (
