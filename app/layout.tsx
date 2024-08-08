@@ -43,7 +43,7 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          "mainBG  bg-background font-sans antialiased flex flex-col items-start h-[100dvh]",
+          "bg-[url('../public/assets/Rainbow_lightbulb_by_Daniel_Micallef.png')] bg-cover font-sans antialiased flex flex-col items-start h-[100dvh]",
           fontSans.variable
         )}
       >

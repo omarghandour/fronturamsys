@@ -1,21 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { cookies } from "next/headers";
-import Link from "next/link";
 import { redirect } from "next/navigation";
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableFooter,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import axios from "axios";
-import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Middle from "@/components/Middle";
+import bg from "../public/assets/Rainbow_lightbulb_by_Daniel_Micallef.png";
 const server: any = process.env.SERVER;
 export default async function Home() {
   const auth =
@@ -26,7 +14,7 @@ export default async function Home() {
   }
 
   return (
-    <main className="h-full w-full mainBG flex flex-col justify-between items-center gap-3">
+    <main className="h-full w-full  flex flex-col justify-evenly items-center gap-3 backdrop-blur-2xl">
       <Navbar />
       <Middle />
       {/* <Footer /> */}

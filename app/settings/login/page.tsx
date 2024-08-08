@@ -24,7 +24,7 @@ const page = async () => {
   }
 
   return (
-    <main className="h-full w-full">
+    <main className="h-full w-full bg-[url('../public/assets/Rainbow_lightbulb_by_Daniel_Micallef.png')] bg-cover">
       <Midleware />
     </main>
   );

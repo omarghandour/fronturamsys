@@ -28,7 +28,7 @@ export const cookie = async (data: any) => {
 };
 const Midleware = () => {
   return (
-    <div className="mainBG w-full h-full flex flex-col justify-center items-center">
+    <div className=" w-full h-full flex flex-col justify-center items-center backdrop-blur-lg">
       <AdminLogin />
     </div>
   );

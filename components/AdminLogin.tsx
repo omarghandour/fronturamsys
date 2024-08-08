@@ -72,7 +72,9 @@ const AdminLogin = () => {
     });
   }
   return (
-    <div className=" w-full md:w-1/2 flex justify-center items-center">
+    <div className=" w-full md:w-1/2 flex justify-center items-center text-white flex-col gap-5">
+      <h1 className="font-bold text-3xl md:text-4xl">Log in to your account</h1>
+      <p className="text-gray-400">Welcome back! Please enter your details.</p>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -105,11 +107,11 @@ const AdminLogin = () => {
             )}
           />
           <Button
-            className="mainColor rounded-3xl p-7 w-full hover:text-black "
+            className="mainColor rounded-3xl p-7 w-full hover:text-black text-xl"
             type="submit"
             disabled={isPending}
           >
-            {isPending ? <Loader /> : "Submit"}
+            {isPending ? <Loader /> : "Login"}
           </Button>
         </form>
       </Form>
