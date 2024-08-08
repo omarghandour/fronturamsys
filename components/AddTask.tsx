@@ -208,7 +208,7 @@ const AddTask = () => {
                         )}
                       >
                         {field.value ? (
-                          format(field.value, "MMMMMMM")
+                          format(field.value, "PPP")
                         ) : (
                           <span>Pick a date</span>
                         )}
@@ -222,7 +222,7 @@ const AddTask = () => {
                       selected={field.value}
                       onSelect={field.onChange}
                       // disabled={(date) =>
-                      //   date > new Date() || date < new Date("1900-01-01")
+                      //   da te > new Date() || date < new Date("1900-01-01")
                       // }
                       initialFocus
                     />
