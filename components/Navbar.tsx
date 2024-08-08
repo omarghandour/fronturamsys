@@ -22,7 +22,7 @@ const Navbar = async () => {
   const data = await OneUser(id);
   const name = data?.user?.name;
   return (
-    <div className=" sticky top-0 z-50 bg-white/30 rounded-2xl w-[95%] shadow-xl text-white">
+    <div className=" sticky top-0 z-50 backdrop-blur-lg bg-white/60 rounded-2xl w-[95%] shadow-xl text-white">
       <div className="flex justify-between flex-row gap-5 m-5 items-center">
         <Link href={"/"}>
           <Avatar>

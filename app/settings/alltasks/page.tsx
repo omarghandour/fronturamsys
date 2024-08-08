@@ -14,7 +14,7 @@ const page = async () => {
   // const { data } = await axios.get(`https://uramsys.onrender.com/tasks`);
 
   return (
-    <div className="mainBG w-full flex gap-3 flex-col justify-center items-center h-[150svh]">
+    <div className="backdrop-blur-lg  w-full flex gap-3 flex-col justify-center items-center h-[150svh]">
       <Middle />
     </div>
   );

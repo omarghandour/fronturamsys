@@ -152,7 +152,7 @@ const CreateUser = () => {
               <FormItem>
                 <FormLabel>Role</FormLabel>
                 <FormControl>
-                  <Input placeholder="role" {...field} />
+                  <Input className="text-black" placeholder="role" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
