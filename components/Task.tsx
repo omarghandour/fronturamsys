@@ -125,7 +125,7 @@ const Task = ({ className, ...props }: CardProps) => {
                 <p className="text-sm font-medium leading-none">
                   Status: {task?.data.task.status}
                 </p>
-                <p className="text-sm text-muted-foreground max-w-full overflow-scroll break-words">
+                <p className="text-sm text-muted-foreground max-w-full overflow-scroll break-words max-h-40">
                   <span className="text-md">Description:</span>
                   {task?.data.task.description}
                 </p>
