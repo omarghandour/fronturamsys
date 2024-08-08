@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { cookies } from "next/headers";
 import Link from "next/link";
@@ -18,6 +19,9 @@ const page = async () => {
 
   return (
     <div className="backdrop-blur-xl  h-full w-full flex gap-3 flex-col justify-center items-center overflow-scroll">
+      <Link href={"/settings"}>
+        <Button>{"<---"}</Button>
+      </Link>
       {data.map((user: any) => (
         <Link
           href={`/settings/allusers/${user._id}`}

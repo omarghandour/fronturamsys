@@ -15,6 +15,9 @@ const page = async () => {
 
   return (
     <div className="backdrop-blur-lg  w-full h-full center flex-col">
+      <Link href={"/settings/allusers"}>
+        <Button>{"<---"}</Button>
+      </Link>
       <OneUser />
     </div>
   );

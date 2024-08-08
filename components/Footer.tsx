@@ -8,29 +8,29 @@ import home from "./../public/inbox-in-svgrepo-com.svg";
 import score from "./../public/assets/Chart.svg";
 import about from "./../public/inbox-out-svgrepo-com.svg";
 const Footer = () => {
-  const pathname = usePathname();
+  const pathname = usePathname().split("/")[1];
 
   // cookie.cookie.name
   const bottombarLinks = [
     {
       imgURL: about,
-      route: "/outbox",
+      route: "outbox",
       label: "Outbox",
     },
     {
       imgURL: home,
-      route: "/",
+      route: "",
       label: "inbox",
     },
     {
       imgURL: score,
-      route: "/dashboard",
+      route: "dashboard",
       label: "Dashboard",
     },
 
     {
       imgURL: dashboard,
-      route: "/settings",
+      route: "settings",
       label: "Settings",
     },
     // {
@@ -46,7 +46,7 @@ const Footer = () => {
         return (
           <Link
             key={`bottombar-${link.label}`}
-            href={link.route}
+            href={`/${link.route}`}
             className={`${
               isActive ? "rounded-[10px] bg-[#606060]" : ""
             } center flex-col gap-1 p-2 transition`}
