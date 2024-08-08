@@ -14,10 +14,7 @@ const page = async () => {
   }
 
   return (
-    <div className="bg-black h-full center flex-col">
-      <Link href={"/settings/allusers"}>
-        <Button>{"<---"}</Button>
-      </Link>
+    <div className="mainBG w-full h-full center flex-col">
       <OneUser />
     </div>
   );

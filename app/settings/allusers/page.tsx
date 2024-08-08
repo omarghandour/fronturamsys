@@ -17,7 +17,7 @@ const page = async () => {
   );
 
   return (
-    <div className="mainBG h-full flex gap-3 flex-col justify-center items-center overflow-scroll">
+    <div className="mainBG h-full w-full flex gap-3 flex-col justify-center items-center overflow-scroll">
       {data.map((user: any) => (
         <Link
           href={`/settings/allusers/${user._id}`}

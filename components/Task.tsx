@@ -7,6 +7,16 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
 import { cn } from "@/lib/utils";
 import { redirect, useParams } from "next/navigation";
 import axios from "axios";
@@ -18,6 +28,7 @@ import Comments from "./Comments";
 type CardProps = React.ComponentProps<typeof Card>;
 
 const Task = ({ className, ...props }: CardProps) => {
+  const [position, setPosition] = React.useState("bottom");
   const [task, setTask] = useState<any>();
   const [role, setRole] = useState<any>();
   const { id }: any = useParams();
@@ -119,29 +130,51 @@ const Task = ({ className, ...props }: CardProps) => {
           </div>
         </CardContent>
         <CardFooter className="flex flex-col gap-2">
-          <form action={forrm} method="post" className="w-full">
-            <Button type="submit" className="w-full">
-              <CheckIcon className="mr-2 h-4 w-4" /> Mark all as Done
-            </Button>
-          </form>
-          <form
-            action={Reject}
-            method="post"
-            className={`w-full ${role?.coo.name !== "user" ? "" : "hidden"}`}
-          >
-            <Button type="submit" className="w-full bg-red-900">
-              X Reject
-            </Button>
-          </form>
-          <form
-            method="post"
-            action={Approve}
-            className={`w-full ${role?.coo.name !== "user" ? "" : "hidden"}`}
-          >
-            <Button type="submit" className="w-full bg-green-900">
-              <CheckIcon className="mr-2 h-4 w-4" /> Approve
-            </Button>
-          </form>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button className=" w-full">Click for actions</Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56">
+              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuRadioGroup className="w-full">
+                <DropdownMenuRadioItem value="top">
+                  <form action={forrm} method="post" className="w-full">
+                    <Button type="submit" className="w-full">
+                      <CheckIcon className="mr-2 h-4 w-4" /> Mark all as Done
+                    </Button>
+                  </form>
+                </DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="bottom">
+                  <form
+                    action={Reject}
+                    method="post"
+                    className={`w-full ${
+                      role?.coo.name !== "user" ? "" : "hidden"
+                    }`}
+                  >
+                    <Button type="submit" className="w-full bg-red-900">
+                      X Reject
+                    </Button>
+                  </form>
+                </DropdownMenuRadioItem>
+                <DropdownMenuRadioItem value="right">
+                  <form
+                    method="post"
+                    action={Approve}
+                    className={`w-full ${
+                      role?.coo.name !== "user" ? "" : "hidden"
+                    }`}
+                  >
+                    <Button type="submit" className="w-full bg-green-900">
+                      <CheckIcon className="mr-2 h-4 w-4" /> Approve
+                    </Button>
+                  </form>
+                </DropdownMenuRadioItem>
+              </DropdownMenuRadioGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
           <Comments />
         </CardFooter>
       </Card>

@@ -2,30 +2,31 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import scan from "./../public/assets/Scan.svg";
+// import scan from "./../public/assets/Scan.svg";
 import dashboard from "./../public/assets/Category.svg";
-import home from "./../public/assets/Home.svg";
+import home from "./../public/inbox-in-svgrepo-com.svg";
 import score from "./../public/assets/Chart.svg";
-import about from "./../public/assets/Document.svg";
+import about from "./../public/inbox-out-svgrepo-com.svg";
 const Footer = () => {
   const pathname = usePathname();
   // cookie.cookie.name
   const bottombarLinks = [
-    // {
-    //   imgURL: about,
-    //   route: "/about",
-    //   label: "About",
-    // },
     {
-      imgURL: score,
-      route: "/dashboard",
-      label: "Dashboard",
+      imgURL: about,
+      route: "/outbox",
+      label: "Outbox",
     },
     {
       imgURL: home,
       route: "/",
       label: "inbox",
     },
+    {
+      imgURL: score,
+      route: "/dashboard",
+      label: "Dashboard",
+    },
+
     {
       imgURL: dashboard,
       route: "/settings",

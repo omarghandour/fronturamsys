@@ -17,7 +17,7 @@ const page = async () => {
   }
 
   return (
-    <div className="mainBG h-full flex gap-3 flex-col justify-center items-center overflow-scroll mx-auto">
+    <div className="mainBG w-full h-full flex gap-3 flex-col justify-center items-center overflow-scroll mx-auto">
       <div className="h-4/5 flex gap-5 flex-col mt-5">
         {data.map((user: any) => (
           <Link
