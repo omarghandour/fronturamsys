@@ -19,6 +19,7 @@ import { toast } from "@/components/ui/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import { SignupTeam } from "@/app/data/Signin";
+import { Loader } from "lucide-react";
 
 const FormSchema = z.object({
   username: z.string().min(2, {
@@ -108,7 +109,7 @@ const AdminLogin = () => {
             type="submit"
             disabled={isPending}
           >
-            {isPending ? "Submitting..." : "Submit"}
+            {isPending ? <Loader /> : "Submit"}
           </Button>
         </form>
       </Form>

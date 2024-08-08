@@ -7,6 +7,9 @@ import Provider from "./utils/Provider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "@/components/ui/toaster";
 import Footer from "@/components/Footer";
+import { cookie } from "./data/Data";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -27,6 +30,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookie =
+    cookies().get("manager") || cookies().get("admin") || cookies().get("user");
   return (
     <html lang="en">
       <head>
@@ -44,7 +49,7 @@ export default function RootLayout({
       >
         <Provider>
           {children}
-          <Footer />
+          {cookie ? <Footer /> : ""}
           <Toaster />
           <SpeedInsights />
         </Provider>
