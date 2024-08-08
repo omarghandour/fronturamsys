@@ -9,6 +9,7 @@ import score from "./../public/assets/Chart.svg";
 import about from "./../public/inbox-out-svgrepo-com.svg";
 const Footer = () => {
   const pathname = usePathname();
+
   // cookie.cookie.name
   const bottombarLinks = [
     {
@@ -47,7 +48,7 @@ const Footer = () => {
             key={`bottombar-${link.label}`}
             href={link.route}
             className={`${
-              isActive && "rounded-[10px] bg-primary-500 "
+              isActive ? "rounded-[10px] bg-[#606060]" : ""
             } center flex-col gap-1 p-2 transition`}
           >
             <Image
