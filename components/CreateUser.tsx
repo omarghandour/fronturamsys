@@ -110,7 +110,7 @@ const CreateUser = () => {
     // });
   }
   if (data) {
-    router.push("/dashboard");
+    router.push("/settings");
   }
   return (
     <div className="w-full md:w-1/2 flex justify-center items-center">
