@@ -18,12 +18,15 @@ const Outbox = async ({ className, ...props }: CardProps) => {
   return (
     <section className="overflow-hidden flex flex-col w-full items-center ">
       <div className={`${"h-[50%] w-full"}`}>
-        <Card className={cn("w-full mainBG h-[75svh]", className)} {...props}>
-          <h1 className="text-left pl-6 text-black text-xl mt-2 shadow-sm">
+        <Card
+          className={cn("w-full bg-transparent h-[75svh]", className)}
+          {...props}
+        >
+          <h1 className="text-left pl-6 text-white text-xl mt-2 shadow-sm">
             Outbox
           </h1>
           <CardContent className="grid gap-4 overflow-scroll h-full w-full">
-            <div className="flex flex-col gap-4  mt-4 pt-4 w-full border border-black p-4 rounded-xl">
+            <div className="flex flex-col gap-4  mt-4 pt-4 w-full border border-white p-4 rounded-xl">
               {data?.tasksT?.map((task: any, index: number) => {
                 return (
                   <Link

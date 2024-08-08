@@ -14,7 +14,7 @@ const page = async () => {
   }
 
   return (
-    <div className="mainBG w-full h-full center flex-col">
+    <div className="backdrop-blur-lg  w-full h-full center flex-col">
       <OneUser />
     </div>
   );

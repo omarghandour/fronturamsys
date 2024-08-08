@@ -3,7 +3,7 @@ import React from "react";
 
 const page = () => {
   return (
-    <section className="mainBG center flex-col w-full h-[110svh] ">
+    <section className="backdrop-blur-lg  center flex-col w-full h-[110svh] ">
       <Task />
     </section>
   );

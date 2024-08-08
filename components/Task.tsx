@@ -86,7 +86,10 @@ const Task = ({ className, ...props }: CardProps) => {
   }, [id]);
   return (
     <div className="h-full w-full flex flex-col justify-start items-center mt-5 overflow-scroll">
-      <Card className={cn("w-11/12", className)} {...props}>
+      <Card
+        className={cn("w-11/12 bg-white/60 text-white font-bold", className)}
+        {...props}
+      >
         <CardHeader>
           <CardTitle>Tasks</CardTitle>
           {/* <CardDescription>You have 3 unread messages.</CardDescription> */}
@@ -122,8 +125,9 @@ const Task = ({ className, ...props }: CardProps) => {
                 <p className="text-sm font-medium leading-none">
                   Status: {task?.data.task.status}
                 </p>
-                <p className="text-sm text-muted-foreground">
-                  Description: {task?.data.task.description}
+                <p className="text-sm text-muted-foreground max-w-full overflow-scroll break-words">
+                  <span className="text-md">Description:</span>
+                  {task?.data.task.description}
                 </p>
               </div>
             </div>

@@ -72,7 +72,7 @@ const Comments = () => {
   }, []);
 
   return (
-    <section className="backdrop-blur-lg bg-white/50 w-full h-[350px] overflow-scroll shadow-xl ">
+    <section className=" w-full h-[350px] overflow-scroll shadow-xl ">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -85,7 +85,11 @@ const Comments = () => {
               <FormItem>
                 <FormLabel>Add comment</FormLabel>
                 <FormControl>
-                  <Input placeholder="Your comment" {...field} />
+                  <Input
+                    placeholder="Your comment"
+                    className="text-black"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -94,9 +98,12 @@ const Comments = () => {
           <Button type="submit">Submit</Button>
         </form>
       </Form>
-      <div className="flex flex-col gap-3 overflow-scroll h-3/5">
+      <div className="flex flex-col gap-3 overflow-scroll h-3/5 rounded-md">
         {comments?.data?.comments.map((comment: any) => (
-          <div key={comment?.id} className="backdrop-blur-lg bg-white/80 p-3">
+          <div
+            key={comment?.id}
+            className="backdrop-blur-lg bg-white/60 p-3 text-black rounded-md"
+          >
             <p>{comment?.content}</p>
             <p className="text-gray-600 text-sm">By: {comment?.uName}</p>
           </div>

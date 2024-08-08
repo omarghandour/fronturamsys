@@ -32,7 +32,7 @@ const OneUser = () => {
     );
   };
   return (
-    <div className="flex flex-col gap-5 bg-white p-5 rounded-lg">
+    <div className="flex flex-col gap-5 backdrop-blur-md bg-white/75 p-5 rounded-lg">
       {path.includes("addtask") ? (
         <AddTaskk />
       ) : (
