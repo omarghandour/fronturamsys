@@ -23,7 +23,7 @@ const page = async () => {
           <Link
             href={`/settings/addtask/${user._id}`}
             key={user._id}
-            className="center flex-col gap-5 bg-white/75 backdrop-blur-md w-full  p-2  hover:bg-slate-500 hover:text-white shadow-xl"
+            className="center flex-col gap-5 bg-white/75 backdrop-blur-md w-full rounded-lg  p-2  hover:bg-slate-500 hover:text-white shadow-xl "
           >
             <div className="font-bold text-xl">{user.name}</div>
             <div>
