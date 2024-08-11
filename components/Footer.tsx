@@ -40,7 +40,7 @@ const Footer = () => {
     // },
   ];
   return (
-    <div className="backdrop-blur-lg bg-white/60 shadow-xl flex z-50 flex-between justify-around w-[95%] sticky bottom-2 rounded-[20px] bg-dark-2 px-5 py-2 mx-auto 2xl:bg-[#38054a]">
+    <div className="backdrop-blur-lg bg-white/60 shadow-xl flex z-50 flex-between justify-around w-[95%] sticky bottom-2 rounded-[20px] bg-dark-2 px-5 py-2 mx-auto md:w-2/5 ">
       {bottombarLinks.map((link) => {
         const isActive = pathname === link.route;
         return (
@@ -49,7 +49,7 @@ const Footer = () => {
             href={`/${link.route}`}
             className={`${
               isActive ? "rounded-[10px] bg-[#606060]" : ""
-            } center flex-col gap-1 p-2 transition`}
+            } center flex-col gap-1 p-2 transition hover:bg-[#606060] rounded-[10px] `}
           >
             <Image
               loading="lazy"
@@ -60,7 +60,9 @@ const Footer = () => {
               className={`${isActive && "invert-white"}`}
             />
 
-            <p className="text-sm text-white text-light-2">{link.label}</p>
+            <p className="text-sm text-white 2xl:text-black text-light-2">
+              {link.label}
+            </p>
           </Link>
         );
       })}

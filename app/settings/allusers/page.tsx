@@ -18,21 +18,26 @@ const page = async () => {
   );
 
   return (
-    <div className="backdrop-blur-xl  h-full w-full flex gap-3 flex-col justify-center items-center overflow-scroll">
+    <div className="backdrop-blur-xl  h-full w-full overflow-scroll center flex flex-col gap-5 ubuntu-regular">
       <Link href={"/settings"}>
-        <Button>{"<---"}</Button>
+        <Button className="bg-white text-black">{"<---"}</Button>
       </Link>
-      {data.map((user: any) => (
-        <Link
-          href={`/settings/allusers/${user._id}`}
-          key={user._id}
-          className="flex gap-5 bg-white w-full  p-2 justify-center hover:bg-slate-500 hover:text-white"
-        >
-          <div>{user.name}</div>
-          <div>{user.role}</div>
-          <div>{user.username}</div>
-        </Link>
-      ))}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 h-4/5 w-4/5 overflow-scroll">
+        {data.map((user: any) => (
+          <Link
+            href={`/settings/allusers/${user._id}`}
+            key={user._id}
+            className="gap-5 bg-white/75 backdrop-blur-md w-full flex-col center rounded-lg p-2  hover:bg-slate-500 hover:text-white"
+          >
+            <div className="font-bold text-xl">{user.name}</div>
+            <div>
+              <span>Role: </span>
+              {user.role}
+            </div>
+            <div>@{user.username}</div>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,9 +1,7 @@
-import { Button } from "@/components/ui/button";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Middle from "@/components/Middle";
-import bg from "../public/assets/Rainbow_lightbulb_by_Daniel_Micallef.png";
 const server: any = process.env.SERVER;
 export default async function Home() {
   const auth =
@@ -14,7 +12,7 @@ export default async function Home() {
   }
 
   return (
-    <main className="h-full w-full  flex flex-col justify-evenly items-center gap-3 backdrop-blur-2xl">
+    <main className="h-full w-full  flex flex-col justify-evenly items-center gap-3 ">
       <Navbar />
       <Middle />
       {/* <Footer /> */}

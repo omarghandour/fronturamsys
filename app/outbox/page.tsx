@@ -11,7 +11,7 @@ export default async function Home() {
   }
 
   return (
-    <main className="h-full w-full backdrop-blur-lg  flex flex-col justify-between items-center gap-3">
+    <main className="h-full w-full  flex flex-col justify-evenly items-center gap-3 backdrop-blur-2xl">
       <Navbar />
       <Outbox />
       {/* <Footer /> */}

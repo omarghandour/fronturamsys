@@ -18,16 +18,19 @@ const page = async () => {
 
   return (
     <div className="backdrop-blur-lg  shadow-xl w-full h-full flex gap-3 flex-col justify-center items-center overflow-scroll mx-auto">
-      <div className="h-4/5 flex gap-5 flex-col mt-5">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 h-4/5 w-4/5 overflow-scroll">
         {data.map((user: any) => (
           <Link
             href={`/settings/addtask/${user._id}`}
             key={user._id}
-            className="flex gap-5 bg-white w-full  p-2 justify-center hover:bg-slate-500 hover:text-white shadow-xl"
+            className="center flex-col gap-5 bg-white/75 backdrop-blur-md w-full  p-2  hover:bg-slate-500 hover:text-white shadow-xl"
           >
-            <div>{user.name}</div>
-            <div>{user.role}</div>
-            <div>{user.username}</div>
+            <div className="font-bold text-xl">{user.name}</div>
+            <div>
+              <span>Role: </span>
+              {user.role}
+            </div>
+            <div>@{user.username}</div>
           </Link>
         ))}
       </div>{" "}
