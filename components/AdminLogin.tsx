@@ -87,7 +87,11 @@ const AdminLogin = () => {
               <FormItem>
                 <FormLabel>Username</FormLabel>
                 <FormControl>
-                  <Input placeholder="username" {...field} />
+                  <Input
+                    placeholder="username"
+                    {...field}
+                    className="text-black"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -100,7 +104,11 @@ const AdminLogin = () => {
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <Input placeholder="password" {...field} />
+                  <Input
+                    placeholder="password"
+                    {...field}
+                    className="text-black"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
