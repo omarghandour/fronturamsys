@@ -108,6 +108,7 @@ const AdminLogin = () => {
                     placeholder="password"
                     {...field}
                     className="text-black"
+                    type="password"
                   />
                 </FormControl>
                 <FormMessage />
