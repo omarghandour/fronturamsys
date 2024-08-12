@@ -15,7 +15,7 @@ const fontSans = FontSans({
 });
 export const metadata: Metadata = {
   title: "UramIT System",
-  description: "System for UramIT ",
+  description: "System for UramIT",
 };
 export const viewport: Viewport = {
   width: "device-width",

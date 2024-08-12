@@ -1,0 +1,21 @@
+{
+  "name": "UramIT System",
+  "short_name": "System for UramIT",
+  "description": "My Next.js application as a Progressive Web App",
+  "icons": [
+    {
+      "src": "./assets/icon.svg",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "./assets/icon.svg",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "display": "standalone"
+}
