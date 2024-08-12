@@ -13,15 +13,16 @@ const Footer = () => {
   // cookie.cookie.name
   const bottombarLinks = [
     {
-      imgURL: about,
-      route: "outbox",
-      label: "Outbox",
-    },
-    {
       imgURL: home,
       route: "",
       label: "inbox",
     },
+    {
+      imgURL: about,
+      route: "outbox",
+      label: "Outbox",
+    },
+
     {
       imgURL: score,
       route: "dashboard",

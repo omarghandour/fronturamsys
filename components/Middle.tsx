@@ -16,26 +16,23 @@ const Middle = async ({ className, ...props }: CardProps) => {
   const len = await data.length;
 
   return (
-    <section className="overflow-hidden flex flex-col w-full items-center ">
-      <div className={`${"h-[50%] w-full"}`}>
+    <section className="overflow-hidden flex flex-col w-full items-center h-4/5">
+      <div className={`${"h-full w-[90%]"}`}>
         <Card
-          className={cn(
-            "w-full bg-transparent h-[75svh] text-white",
-            className
-          )}
+          className={cn("w-full bg-transparent h-full text-white", className)}
           {...props}
         >
-          <h1 className="text-left pl-6  text-xl mt-2 shadow-sm">Inbox</h1>
+          <h1 className="text-left pl-6 text-xl mt-2 shadow-sm">Inbox</h1>
           <CardContent className="grid gap-4 overflow-scroll h-full w-full">
-            <div className="flex flex-col gap-4  mt-4 pt-4 w-full border border-white p-4 rounded-xl">
+            <div className="flex flex-col gap-4  mt-4  w-full  pb-4 rounded-xl">
               {data?.tasks?.map((task: any, index: number) => {
                 return (
                   <Link
-                    href={`/settings/alltasks/${task._id}`}
+                    href={`/settings/alltasks/${task?._id}`}
                     key={task._id}
                     className={`${
                       index === len - 1 ? "mb-15px" : ""
-                    } max-h-[30%] backdrop-blur-md bg-white/80 shadow-2xl rounded-md grid  items-center justify-items-stretch p-4 
+                    } max-h-[30%] backdrop-blur-md bg-white/75 shadow-2xl rounded-md grid  items-center justify-items-stretch p-4 
                      w-[100%] overflow-hidden`}
                   >
                     {/* <Image
@@ -46,7 +43,7 @@ const Middle = async ({ className, ...props }: CardProps) => {
           height={50}
         /> */}
                     <div className="space-y-1 overflow-hidden p-2 max-h-[90%]">
-                      <p className="text-left text-lg font-medium leading-none">
+                      <p className="text-left text-lg font-medium leading-none text-black">
                         Title: {task.title}
                       </p>
                       <p

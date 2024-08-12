@@ -12,7 +12,7 @@ export default async function Home() {
   }
 
   return (
-    <main className="h-full w-full  flex flex-col justify-evenly items-center gap-3 ">
+    <main className="h-[88%] w-full  flex flex-col justify-start items-center gap-3 ">
       <Navbar />
       <Middle />
       {/* <Footer /> */}

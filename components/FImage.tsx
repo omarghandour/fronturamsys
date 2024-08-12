@@ -45,16 +45,22 @@ const FileDisplay = ({ fileId }: { fileId: string }) => {
     };
   }, [fileId]);
 
-  if (!fileUrl) return <p>Loading...</p>;
+  if (!fileUrl) return <p>No attachment yet</p>;
 
   if (fileType?.startsWith("image/")) {
     return (
-      <img
-        src={fileUrl}
-        alt={fileId}
-        loading="lazy"
+      <a
+        href={fileUrl}
+        download={fileId}
         className="max-w-[300px] md:max-w-[600px] max-h-[300px] md:max-h-[600px] "
-      />
+      >
+        <img
+          src={fileUrl}
+          alt={fileId}
+          loading="lazy"
+          className="max-w-[300px] md:max-w-[600px] max-h-[300px] md:max-h-[600px] "
+        />
+      </a>
     );
   }
 

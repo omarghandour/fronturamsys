@@ -229,9 +229,7 @@ const AddTask = () => {
                     />
                   </PopoverContent>
                 </Popover>
-                <FormDescription>
-                  Your date of birth is used to calculate your age.
-                </FormDescription>
+                <FormDescription>Choose the deadline date</FormDescription>
                 <FormMessage />
               </FormItem>
             )}

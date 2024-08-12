@@ -152,13 +152,13 @@ const Task = ({ className, ...props }: CardProps) => {
     rr();
   }, [id]);
   return (
-    <div className="h-full w-full flex flex-col justify-start items-center mt-5 overflow-scroll">
+    <div className="h-[92%] w-full flex flex-col justify-start items-center mt-5 overflow-scroll">
       <Card
         className={cn("w-11/12 bg-white/60 text-white font-bold", className)}
         {...props}
       >
         <CardHeader>
-          <CardTitle>Tasks</CardTitle>
+          <CardTitle className="text-black">Tasks</CardTitle>
           {/* <CardDescription>You have 3 unread messages.</CardDescription> */}
         </CardHeader>
         <CardContent className="grid gap-4">
@@ -175,18 +175,18 @@ const Task = ({ className, ...props }: CardProps) => {
           </div> */}
           <div>
             <div className="mb-4 grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0">
-              <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500" />
+              <span className="flex h-2 w-2 translate-y-1 rounded-full " />
               <div className="space-y-1 overflow-scroll max-w-full flex flex-col gap-5 pb-5">
-                <p className="text-sm font-medium leading-none">
+                <p className="text-sm font-medium leading-none text-black">
                   Title: {task?.data.task.title}
                 </p>
-                <p className="text-sm font-medium leading-none">
+                <p className="text-sm font-medium leading-none text-black">
                   Creator: {task?.data.task.creatorName}
                 </p>
-                <p className="text-sm font-medium leading-none">
+                <p className="text-sm font-medium leading-none text-black">
                   Assigned To: {task?.data.task.assignedToName}
                 </p>
-                <p className="text-sm font-medium leading-none">
+                <p className="text-sm font-medium leading-none text-black">
                   Deadline: {task?.data.task.deadlineDate.split("T")[0]}
                 </p>
                 <p className="text-sm font-medium leading-none">

@@ -76,18 +76,18 @@ const Comments = () => {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="w-full flex  items-end justify-center mb-2"
+          className="w-full flex  items-end justify-center mb-2 flex-col gap-3"
         >
           <FormField
             control={form.control}
             name="comment"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel>Add comment</FormLabel>
-                <FormControl>
+              <FormItem className="w-full">
+                {/* <FormLabel>Add comment</FormLabel> */}
+                <FormControl className="w-full">
                   <Input
                     placeholder="Your comment"
-                    className="text-black"
+                    className="text-black w-full"
                     {...field}
                   />
                 </FormControl>
@@ -95,7 +95,9 @@ const Comments = () => {
               </FormItem>
             )}
           />{" "}
-          <Button type="submit">Submit</Button>
+          <Button type="submit" className="w-full">
+            Submit
+          </Button>
         </form>
       </Form>
       <div className="flex flex-col gap-3 overflow-scroll h-3/5 rounded-md">

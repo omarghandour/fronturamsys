@@ -16,17 +16,17 @@ const Outbox = async ({ className, ...props }: CardProps) => {
   const len = await data.length;
 
   return (
-    <section className="overflow-hidden flex flex-col w-full items-center ">
-      <div className={`${"h-[50%] w-full"}`}>
+    <section className="overflow-hidden flex flex-col h-4/5 w-full items-center ">
+      <div className={`${"h-full w-full"}`}>
         <Card
-          className={cn("w-full bg-transparent h-[75svh]", className)}
+          className={cn("w-full bg-transparent h-full", className)}
           {...props}
         >
           <h1 className="text-left pl-6 text-white text-xl mt-2 shadow-sm">
             Outbox
           </h1>
           <CardContent className="grid gap-4 overflow-scroll h-full w-full">
-            <div className="flex flex-col gap-4  mt-4 pt-4 w-full border border-white p-4 rounded-xl">
+            <div className="flex flex-col gap-4  mt-4 pt-4 w-full p-4 rounded-xl">
               {data?.tasksT?.map((task: any, index: number) => {
                 return (
                   <Link
@@ -34,7 +34,7 @@ const Outbox = async ({ className, ...props }: CardProps) => {
                     key={task._id}
                     className={`${
                       index === len - 1 ? "mb-15px" : ""
-                    } max-h-full backdrop-blur-md bg-white/80 shadow-2xl rounded-md grid  items-center justify-items-stretch p-4  w-[100%] overflow-scroll`}
+                    } max-h-full backdrop-blur-md bg-white/75 shadow-2xl rounded-md grid  items-center justify-items-stretch p-4  w-[100%] overflow-scroll`}
                   >
                     {/* <Image
                         loading="lazy"
