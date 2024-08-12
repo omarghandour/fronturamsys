@@ -79,7 +79,15 @@ const FileDisplay = ({ fileId }: { fileId: string }) => {
   }
 
   if (fileType === "application/pdf") {
-    return <iframe src={fileUrl} width="600" height="800" />;
+    return (
+      <iframe
+        src={fileUrl}
+        width="600"
+        height="800"
+        allowFullScreen
+        className="max-w-[300px] md:max-w-[600px] max-h-[300px] md:max-h-[400px] "
+      />
+    );
   }
 
   return (

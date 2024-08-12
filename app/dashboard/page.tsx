@@ -9,7 +9,7 @@ const page = () => {
     redirect("/");
   }
   return (
-    <div className="h-full backdrop-blur-lg w-full text-white center mx-auto">
+    <div className="h-[88%] backdrop-blur-lg w-full text-white center mx-auto">
       <div>coming soon</div>
     </div>
   );

@@ -13,7 +13,7 @@ const page = async () => {
   }
 
   return (
-    <div className=" h-full center flex-col mx-auto">
+    <div className=" h-[88%] center flex-col mx-auto">
       <Link href={"/settings/addtask"}>
         <Button className="bg-white text-black">{"<--"}</Button>
       </Link>
