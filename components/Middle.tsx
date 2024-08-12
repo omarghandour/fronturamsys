@@ -16,15 +16,17 @@ const Middle = async ({ className, ...props }: CardProps) => {
   const len = await data.length;
 
   return (
-    <section className="overflow-hidden flex flex-col w-full items-center h-4/5">
-      <div className={`${"h-full w-[90%]"}`}>
+    <section className="overflow-hidden flex flex-col h-4/5 w-full items-center">
+      <div className={`${"h-full w-full"}`}>
         <Card
-          className={cn("w-full bg-transparent h-full text-white", className)}
+          className={cn("w-full bg-transparent h-full ", className)}
           {...props}
         >
-          <h1 className="text-left pl-6 text-xl mt-2 shadow-sm">Inbox</h1>
+          <h1 className="text-left pl-6 text-white text-xl mt-2 shadow-sm">
+            Inbox
+          </h1>
           <CardContent className="grid gap-4 overflow-scroll h-full w-full">
-            <div className="flex flex-col gap-4  mt-4  w-full  pb-4 rounded-xl">
+            <div className="flex flex-col gap-4  mt-4 pt-4 w-full p-4 rounded-xl">
               {data?.tasks?.map((task: any, index: number) => {
                 return (
                   <Link
