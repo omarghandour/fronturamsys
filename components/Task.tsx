@@ -124,11 +124,16 @@ const Task = ({ className, ...props }: CardProps) => {
       });
     console.log(Reject);
   };
+  // Function to delete the cached file when the task is deleted
+  const deleteCache = (idd: string) => {
+    localStorage.removeItem(`file_${idd}`);
+  };
   const approved = async (id: any) => {
     const idd = await id;
     const Approve = await axios
       .delete(`https://uramsys.onrender.com/tasks/task/${idd}`)
       .then(() => {
+        deleteCache(idd);
         location.replace("/");
       });
     const response = await axios.delete(

@@ -1,6 +1,6 @@
 export default function Loading() {
   return (
-    <div className="w-full p-5 overflow-hidden h-full">
+    <div className="w-full p-5 overflow-hidden h-[88%]">
       <div className="w-full">
         <div className="animate-pulse h-6 bg-transparent rounded"></div>
       </div>
