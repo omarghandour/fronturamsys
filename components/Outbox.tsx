@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
 import { cookies } from "next/headers";
 import axios from "axios";
+import { Button } from "./ui/button";
 type CardProps = React.ComponentProps<typeof Card>;
 
 const Outbox = async ({ className, ...props }: CardProps) => {
@@ -22,8 +23,12 @@ const Outbox = async ({ className, ...props }: CardProps) => {
           className={cn("w-full bg-transparent h-full", className)}
           {...props}
         >
-          <h1 className="text-left pl-6 text-white text-xl mt-2 shadow-sm">
-            Outbox
+          <h1 className="text-left text-white text-xl shadow-sm flex">
+            <Link prefetch={true} href={"settings/addtask"} className="ml-1">
+              <Button className="bg-transparent text-white text-xl py-0">
+                Outbox
+              </Button>
+            </Link>
           </h1>
           <CardContent className="grid gap-4 overflow-scroll h-full w-full">
             <div className="flex flex-col gap-4  mt-4 pt-4 w-full p-4 rounded-xl">
