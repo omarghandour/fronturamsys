@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { z } from "zod";
+import attachment from "../public/attachment-2-svgrepo-com.svg";
 import {
   Card,
   CardContent,
@@ -37,6 +38,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
+import Image from "next/image";
 type CardProps = React.ComponentProps<typeof Card>;
 const FormSchema = z.object({
   image: z.any(),
@@ -87,7 +89,7 @@ const Task = ({ className, ...props }: CardProps) => {
       );
       console.log(response);
 
-      if (response.ok) {
+      if (response?.ok) {
         location.replace("/");
       } else {
         alert("Failed to upload the file.");
@@ -198,8 +200,12 @@ const Task = ({ className, ...props }: CardProps) => {
                   Status: {task?.data.task.status}
                 </p>
                 <p className="text-sm text-muted-foreground max-w-full overflow-scroll break-words max-h-40">
-                  <span className="text-md">Description:</span>
+                  <span className="text-md">Description: </span>
                   {task?.data.task.description}
+                </p>
+                <p className="text-sm text-muted-foreground max-w-full overflow-scroll break-words max-h-40">
+                  <span className="text-md">Created At: </span>
+                  {task?.data.task.createdAt.split("T")[0]}
                 </p>
               </div>
             </div>
@@ -252,43 +258,42 @@ const Task = ({ className, ...props }: CardProps) => {
           </DropdownMenu>
           <DropdownMenu>
             <DropdownMenuTrigger asChild className="w-full top-2">
-              <Button className="w-full">Attachment</Button>
+              <Button className="w-full flex gap-5">
+                <span>Attachment</span>
+                <Image src={attachment} width={20} height={20} alt="" />
+              </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-full p-5">
               <DropdownMenuLabel>
-                {role?.coo?.name === ("admin" || "manager") ? (
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild className="w-[200px]">
-                      <Button className=" w-full">Attachment</Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent className="w-[90%] mx-auto p-5">
-                      <DropdownMenuLabel>nn</DropdownMenuLabel>
-                      <div className="max-w-md mx-auto p-6 bg-white rounded-md shadow-md">
-                        <form onSubmit={handleUpload}>
-                          <Label className="block text-sm font-medium text-gray-700">
-                            Upload a file
-                          </Label>
-                          <input
-                            type="file"
-                            name="image"
-                            onChange={(e: any) =>
-                              setSelectedFile(e.target.files[0])
-                            }
-                            className="block w-full text-sm text-gray-900 bg-gray-50 rounded-md border border-gray-300 cursor-pointer focus:outline-none"
-                          />
-                          <input
-                            type="submit"
-                            value={"Upload"}
-                            className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md"
-                          />
-                        </form>
-                      </div>
-                      <DropdownMenuSeparator />
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                ) : (
-                  ""
-                )}
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild className="w-[200px]">
+                    <Button className=" w-full">Attachment</Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="w-[90%] mx-auto p-5">
+                    {/* <DropdownMenuLabel>nn</DropdownMenuLabel> */}
+                    <div className="max-w-md mx-auto p-6 bg-white rounded-md shadow-md">
+                      <form onSubmit={handleUpload}>
+                        <Label className="block text-sm font-medium text-gray-700">
+                          Upload a file
+                        </Label>
+                        <input
+                          type="file"
+                          name="image"
+                          onChange={(e: any) =>
+                            setSelectedFile(e.target.files[0])
+                          }
+                          className="block w-full text-sm text-gray-900 bg-gray-50 rounded-md border border-gray-300 cursor-pointer focus:outline-none"
+                        />
+                        <input
+                          type="submit"
+                          value={"Upload"}
+                          className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md"
+                        />
+                      </form>
+                    </div>
+                    <DropdownMenuSeparator />
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
               <FImage fileId={id} />

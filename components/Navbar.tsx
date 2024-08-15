@@ -18,7 +18,7 @@ const Navbar = async () => {
   if (!team) {
     redirect("/settings/login");
   }
-  const id = team.value;
+  const id = team?.value;
   const data = await OneUser(id);
   const name = data?.user?.name;
   return (

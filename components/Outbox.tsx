@@ -26,7 +26,7 @@ const Outbox = async ({ className, ...props }: CardProps) => {
           <h1 className="text-left text-white text-xl shadow-sm flex">
             <Link prefetch={true} href={"settings/addtask"} className="ml-1">
               <Button className="bg-transparent text-white text-xl py-0">
-                Outbox
+                Add Task +
               </Button>
             </Link>
           </h1>
@@ -36,7 +36,7 @@ const Outbox = async ({ className, ...props }: CardProps) => {
                 return (
                   <Link
                     href={`/settings/alltasks/${task._id}`}
-                    key={task._id}
+                    key={task?._id}
                     className={`${
                       index === len - 1 ? "mb-15px" : ""
                     } max-h-full backdrop-blur-md bg-white/75 shadow-2xl rounded-md grid  items-center justify-items-stretch p-4  w-[100%] overflow-scroll`}
@@ -50,21 +50,25 @@ const Outbox = async ({ className, ...props }: CardProps) => {
                       /> */}
                     <div className="space-y-1 overflow-hidden p-2 max-h-[90%]">
                       <p className="text-left text-lg font-medium leading-none">
-                        Title: {task.title}
+                        Title: {task?.title}
                       </p>
                       <p
                         className={`text-left break-words text-sm text-muted-foreground overflow-hidden ${
-                          task.status === "completed"
+                          task?.status === "completed"
                             ? "text-green-500"
                             : "text-red-500"
                         }`}
                       >
                         <span className="text-black">Status:</span>{" "}
-                        {task.status}
+                        {task?.status}
+                      </p>
+                      <p className="text-left break-words text-sm text-muted-foreground overflow-hidden text-green-800">
+                        <span className="text-black">Assigned To: </span>
+                        {task?.assignedToName}
                       </p>
                       <p className="text-left break-words text-sm text-muted-foreground overflow-hidden text-green-800">
                         <span className="text-black">Deadline: </span>
-                        {task.deadlineDate.split("T")[0]}
+                        {task?.deadlineDate.split("T")[0]}
                       </p>
                     </div>
                   </Link>

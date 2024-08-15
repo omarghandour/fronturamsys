@@ -108,6 +108,9 @@ const Comments = () => {
           >
             <p>{comment?.content}</p>
             <p className="text-gray-600 text-sm">By: {comment?.uName}</p>
+            <p className="text-gray-600 text-sm">
+              Created At: {comment?.createdAt.split("T")[0]}
+            </p>
           </div>
         ))}
         {comments?.data?.comments.length === 0 && <p>No comments yet</p>}
