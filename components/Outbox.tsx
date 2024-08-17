@@ -20,7 +20,7 @@ const Outbox = async ({ className, ...props }: CardProps) => {
     <section className="overflow-hidden flex flex-col h-4/5 w-full items-center ">
       <div className={`${"h-full w-full"}`}>
         <Card
-          className={cn("w-full bg-transparent h-full", className)}
+          className={cn("w-[95%] mx-auto bg-transparent h-full", className)}
           {...props}
         >
           <h1 className="text-left text-white text-xl shadow-sm flex">
