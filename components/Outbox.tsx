@@ -37,9 +37,11 @@ const Outbox = async ({ className, ...props }: CardProps) => {
                   <Link
                     href={`/settings/alltasks/${task._id}`}
                     key={task?._id}
-                    className={`${
-                      index === len - 1 ? "mb-15px" : ""
-                    } max-h-full backdrop-blur-md bg-white/75 shadow-2xl rounded-md grid  items-center justify-items-stretch p-4  w-[100%] overflow-scroll`}
+                    className={` 
+                      ${task?.read ? "bg-white/75" : "bg-yellow-200"}
+                      ${
+                        index === len - 1 ? "mb-15px" : ""
+                      } max-h-full backdrop-blur-md  shadow-2xl rounded-md grid  items-center justify-items-stretch p-4  w-[100%] overflow-scroll`}
                   >
                     {/* <Image
                         loading="lazy"

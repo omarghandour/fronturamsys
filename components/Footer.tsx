@@ -45,7 +45,7 @@ const Footer = () => {
       {bottombarLinks.map((link) => {
         const isActive = pathname === link.route;
         return (
-          <Link
+          <a
             key={`bottombar-${link.label}`}
             href={`/${link.route}`}
             className={`${
@@ -64,7 +64,7 @@ const Footer = () => {
             <p className="text-sm text-white 2xl:text-black text-light-2">
               {link.label}
             </p>
-          </Link>
+          </a>
         );
       })}
     </div>

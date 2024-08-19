@@ -39,6 +39,7 @@ import {
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import Image from "next/image";
+import Link from "next/link";
 type CardProps = React.ComponentProps<typeof Card>;
 const FormSchema = z.object({
   image: z.any(),
@@ -160,6 +161,9 @@ const Task = ({ className, ...props }: CardProps) => {
   }, [id]);
   return (
     <div className="h-[92%] w-full flex flex-col justify-start items-center mt-5 overflow-scroll">
+      <Link href={"/"} className="ml-2">
+        <Button>{"<--"}</Button>
+      </Link>
       <Card
         className={cn("w-11/12 bg-white/60 text-white font-bold", className)}
         {...props}
