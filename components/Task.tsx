@@ -56,11 +56,15 @@ const Task = ({ className, ...props }: CardProps) => {
   };
 
   const getTask = async (id: string) => {
-    const data = await axios.get(
-      `https://uramsys.onrender.com/tasks/task/${id}`
-    );
-    // console.log(data);
-    setTask(data);
+    try {
+      const data = await axios.get(
+        `https://uramsys.onrender.com/tasks/task/${id}`
+      );
+      // console.log(data);
+      setTask(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
   const handleFileChange = (e: any) => {
     if (e.target.files && e.target.files.length > 0) {

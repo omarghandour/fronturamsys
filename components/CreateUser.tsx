@@ -113,7 +113,7 @@ const CreateUser = () => {
     router.push("/settings");
   }
   return (
-    <div className="w-full md:w-1/2 flex justify-center items-center">
+    <div className="w-full md:w-1/2 flex justify-center items-center text-black">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -165,7 +165,7 @@ const CreateUser = () => {
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="email" {...field} />
+                  <Input placeholder="email" type="email" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -178,7 +178,7 @@ const CreateUser = () => {
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <Input placeholder="password" {...field} />
+                  <Input placeholder="password" type="password" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

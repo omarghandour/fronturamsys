@@ -13,7 +13,7 @@ const Middle = async ({ className, ...props }: CardProps) => {
   const { data } = await axios.get(
     `https://uramsys.onrender.com/tasks/${auth?.value}/${auth?.name}`
   );
-  const len = await data.length;
+  const len = await data?.length;
 
   return (
     <section className="overflow-hidden flex flex-col h-4/5 w-full items-center">

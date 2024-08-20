@@ -1,8 +1,6 @@
 "use client";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-// import scan from "./../public/assets/Scan.svg";
 import dashboard from "./../public/assets/Category.svg";
 import home from "./../public/inbox-in-svgrepo-com.svg";
 import score from "./../public/assets/Chart.svg";
