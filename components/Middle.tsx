@@ -30,7 +30,7 @@ const Middle = async ({ className, ...props }: CardProps) => {
               {data?.tasks?.map((task: any, index: number) => {
                 return (
                   <Link
-                    href={`/settings/alltasks/${task?._id}`}
+                    href={`/${task?._id}`}
                     key={task?._id}
                     className={`
                        ${task?.read ? "bg-white/75" : "bg-yellow-200"}
