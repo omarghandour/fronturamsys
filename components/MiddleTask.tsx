@@ -56,6 +56,9 @@ const MiddleTask = ({ className, ...props }: CardProps) => {
   };
 
   const getTask = async (id: string) => {
+    const URI = process.env.URI;
+    console.log(URI);
+
     try {
       const data = await axios.get(
         `https://uramsys.onrender.com/tasks/task/${id}`

@@ -30,6 +30,8 @@ const FormSchema = z.object({
   }),
 });
 
+const URI = process.env.URI;
+console.log("Uri" + URI);
 const AdminLogin = () => {
   const router = useRouter();
   const [dataa, setData] = useState<any>();
@@ -63,14 +65,14 @@ const AdminLogin = () => {
     // });
   }
   //
-  console.log(data);
+  // console.log(data?.message);
 
-  // if (data?.message) {
-  //   toast({
-  //     title: "Login Failed",
-  //     description: data?.message,
-  //   });
-  // }
+  if (data?.message) {
+    toast({
+      title: "Login Failed",
+      description: data?.message,
+    });
+  }
   return (
     <div className=" w-full md:w-1/2 flex justify-center items-center text-white flex-col gap-5">
       <h1 className="font-bold text-3xl md:text-4xl">Log in to your account</h1>
